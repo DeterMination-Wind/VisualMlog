@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>MlogScratchStudio</title>
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%232f5d91'/%3E%3Ctext x='16' y='22' font-size='18' text-anchor='middle' fill='white' font-family='Segoe UI, Arial, sans-serif'%3EM%3C/text%3E%3C/svg%3E"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <div class="brand">
+          <div class="brand-mark" aria-hidden="true">M</div>
+          <div>
+            <h1>MlogScratchStudio</h1>
+            <span id="projectMeta">未连接后端</span>
+          </div>
+        </div>
+        <div class="top-actions">
+          <button class="toolbar-button" id="previewBtn" type="button" title="预览当前处理器">
+            <span aria-hidden="true">▶</span>
+            <span>预览</span>
+          </button>
+          <button class="toolbar-button primary" id="compileBtn" type="button" title="调用后端编译接口">
+            <span aria-hidden="true">⧉</span>
+            <span>编译</span>
+          </button>
+          <button class="icon-button" id="exportBtn" type="button" title="导出 UI 项目 JSON" aria-label="导出 UI 项目 JSON">⇩</button>
+          <button class="icon-button" id="resetBtn" type="button" title="重置 UI 示例项目" aria-label="重置 UI 示例项目">↻</button>
+        </div>
+      </header>
+
+      <main class="main-grid">
+        <aside class="palette-panel" aria-label="积木分类">
+          <nav class="category-rail" id="categoryRail"></nav>
+          <section class="palette-content">
+            <div class="section-header compact">
+              <div>
+                <h2 id="paletteTitle">程序</h2>
+                <span id="paletteMeta">0 个积木</span>
+              </div>
+            </div>
+            <div class="palette-list" id="paletteList"></div>
+          </section>
+        </aside>
+
+        <section class="workspace-panel" aria-label="处理器脚本区">
+          <div class="workspace-header">
+            <div>
+              <h2 id="activeProcessorTitle">主逻辑处理器</h2>
+              <span id="activeProcessorMeta">0 个积木</span>
+            </div>
+            <div class="workspace-tools">
+              <button class="icon-button" id="addBlockBtn" type="button" title="添加当前分类第一个积木" aria-label="添加当前分类第一个积木">＋</button>
+              <button class="icon-button" id="removeScriptBlockBtn" type="button" title="删除选中的脚本积木" aria-label="删除选中的脚本积木">⌫</button>
+            </div>
+          </div>
+
+          <div class="script-surface">
+            <div class="script-stack" id="scriptStack"></div>
+            <aside class="script-inspector">
+              <div class="section-header compact">
+                <div>
+                  <h3>积木属性</h3>
+                  <span id="scriptInspectorMeta">未选择</span>
+                </div>
+              </div>
+              <div id="scriptInspectorBody" class="inspector-body"></div>
+            </aside>
+          </div>
+        </section>
+
+        <aside class="stage-panel" aria-label="舞台区">
+          <section class="stage-card">
+            <div class="stage-toolbar">
+              <div class="stage-mode-row">
+                <button class="icon-button selected" data-stage-tool="select" type="button" title="选择" aria-label="选择">⌖</button>
+                <button class="icon-button" data-stage-tool="link" type="button" title="连接处理器到方块" aria-label="连接处理器到方块">⟷</button>
+              </div>
+              <div class="place-tools" id="placeTools"></div>
+            </div>
+            <div class="stage-canvas" id="stageCanvas">
+              <svg class="link-overlay" id="linkOverlay" aria-hidden="true"></svg>
+              <div class="tile-grid" aria-hidden="true"></div>
+              <div class="stage-nodes" id="stageNodes"></div>
+            </div>
+          </section>
+
+          <section class="processor-strip" aria-label="处理器精灵">
+            <div class="section-header compact">
+              <div>
+                <h3>处理器</h3>
+                <span id="processorMeta">0 个精灵</span>
+              </div>
+              <button class="icon-button" id="addProcessorBtn" type="button" title="添加逻辑处理器" aria-label="添加逻辑处理器">＋</button>
+            </div>
+            <div class="processor-list" id="processorList"></div>
+          </section>
+
+          <section class="right-inspector">
+            <div class="tab-row" role="tablist">
+              <button class="tab-button selected" data-inspector-tab="stage" type="button">舞台</button>
+              <button class="tab-button" data-inspector-tab="lists" type="button">列表</button>
+              <button class="tab-button" data-inspector-tab="backend" type="button">接口</button>
+            </div>
+            <div id="rightInspectorBody" class="inspector-body"></div>
+          </section>
+        </aside>
+      </main>
+
+      <footer class="statusbar">
+        <span id="statusText">就绪</span>
+        <span id="compileStatus">backend: stub</span>
+      </footer>
+    </div>
+
+    <script src="./backendAdapter.js" defer></script>
+    <script src="./app.js" defer></script>
+  </body>
+</html>

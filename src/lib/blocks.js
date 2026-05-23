@@ -1,4 +1,7 @@
 import LazyScratchBlocks from './tw-lazy-scratch-blocks';
+import registerMlogListBlocks from './mlog-list-blocks';
+import registerMlogMindustryBlocks from './mlog-mindustry-blocks';
+import registerMlogSugarBlocks from './mlog-sugar-blocks';
 
 /**
  * Connect scratch blocks with the vm
@@ -320,6 +323,10 @@ export default function (vm) {
         const json = jsonForMenuBlock('CLONE_OPTION', cloneMenu, controlColors, []);
         this.jsonInit(json);
     };
+
+    registerMlogListBlocks(ScratchBlocks);
+    registerMlogSugarBlocks(ScratchBlocks);
+    registerMlogMindustryBlocks(ScratchBlocks);
 
     ScratchBlocks.VerticalFlyout.getCheckboxState = function (blockId) {
         const monitoredBlock = vm.runtime.monitorBlocks._blocks[blockId];

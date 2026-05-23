@@ -87,14 +87,17 @@ class Stage extends React.Component {
         this.props.vm.attachV2BitmapAdapter(new V2BitmapAdapter());
     }
     componentDidMount () {
-        this.attachRectEvents();
-        this.attachMouseEvents(this.canvas);
-        this.updateRect();
-        this.renderer.resize(this.rect.width, this.rect.height);
+        if (!this.props.useGraphStage) {
+            this.attachRectEvents();
+            this.attachMouseEvents(this.canvas);
+            this.updateRect();
+            this.renderer.resize(this.rect.width, this.rect.height);
+        }
         this.props.vm.runtime.addListener('QUESTION', this.questionListener);
     }
     shouldComponentUpdate (nextProps, nextState) {
         return this.props.stageSize !== nextProps.stageSize ||
+            this.props.useGraphStage !== nextProps.useGraphStage ||
             this.props.isColorPicking !== nextProps.isColorPicking ||
             this.state.colorInfo !== nextState.colorInfo ||
             this.props.isFullScreen !== nextProps.isFullScreen ||
@@ -106,6 +109,9 @@ class Stage extends React.Component {
             this.props.customStageSize !== nextProps.customStageSize;
     }
     componentDidUpdate (prevProps) {
+        if (this.props.useGraphStage) {
+            return;
+        }
         if (this.props.isColorPicking && !prevProps.isColorPicking) {
             this.startColorPickingLoop();
         } else if (!this.props.isColorPicking && prevProps.isColorPicking) {
@@ -115,9 +121,11 @@ class Stage extends React.Component {
         this.renderer.resize(this.rect.width, this.rect.height);
     }
     componentWillUnmount () {
-        this.detachMouseEvents(this.canvas);
-        this.detachRectEvents();
-        this.stopColorPickingLoop();
+        if (!this.props.useGraphStage) {
+            this.detachMouseEvents(this.canvas);
+            this.detachRectEvents();
+            this.stopColorPickingLoop();
+        }
         this.props.vm.runtime.removeListener('QUESTION', this.questionListener);
     }
     questionListener (question) {
@@ -482,6 +490,7 @@ Stage.propTypes = {
     onActivateColorPicker: PropTypes.func,
     onDeactivateColorPicker: PropTypes.func,
     stageSize: PropTypes.oneOf(Object.keys(STAGE_DISPLAY_SIZES)).isRequired,
+    useGraphStage: PropTypes.bool,
     useEditorDragStyle: PropTypes.bool,
     vm: PropTypes.instanceOf(VM).isRequired
 };
@@ -506,6 +515,7 @@ const mapStateToProps = state => ({
     dimensions: state.scratchGui.tw.dimensions,
     isStarted: state.scratchGui.vmStatus.started,
     micIndicator: state.scratchGui.micIndicator,
+    useGraphStage: !state.scratchGui.mode.isPlayerOnly,
     // Do not use editor drag style in fullscreen or player mode.
     useEditorDragStyle: !(state.scratchGui.mode.isFullScreen || state.scratchGui.mode.isPlayerOnly)
 });

@@ -31,6 +31,7 @@ class TWWindchimeSubmitter extends React.Component {
     componentDidUpdate (prevProps) {
         if (
             (this.props.isStarted && !prevProps.isStarted) &&
+            this.props.projectId &&
             this.props.projectId !== '0'
         ) {
             this.submit();
@@ -38,7 +39,7 @@ class TWWindchimeSubmitter extends React.Component {
     }
 
     submit () {
-        if (isOptedOut() || submittedThisSession.has(this.props.projectId)) {
+        if (!this.props.projectId || isOptedOut() || submittedThisSession.has(this.props.projectId)) {
             return;
         }
 
@@ -73,7 +74,7 @@ class TWWindchimeSubmitter extends React.Component {
 TWWindchimeSubmitter.propTypes = {
     isEmbedded: PropTypes.bool.isRequired,
     isStarted: PropTypes.bool.isRequired,
-    projectId: PropTypes.string.isRequired
+    projectId: PropTypes.string
 };
 
 const mapStateToProps = state => ({

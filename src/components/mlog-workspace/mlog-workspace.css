@@ -1,0 +1,865 @@
+@import "../../css/units.css";
+
+.workspace {
+    height: 100%;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    background: #0e1318;
+    color: #e7eef7;
+}
+
+.header {
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 16px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    background: #111821;
+}
+
+.projectTitle {
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.projectMeta {
+    margin-top: 2px;
+    font-size: 12px;
+    color: #9fb0c1;
+}
+
+.headerStatus {
+    flex: 1;
+    text-align: center;
+    font-size: 12px;
+    color: #bfd0dc;
+    padding: 0 8px;
+    min-width: 0;
+}
+
+.headerActions {
+    flex: 0 0 auto;
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.workspaceBody {
+    flex: 1;
+    min-height: 0;
+    display: flex;
+    gap: 12px;
+    padding: 12px;
+    overflow: hidden;
+}
+
+.leftPane {
+    flex: 0 0 380px;
+    min-width: 320px;
+    max-width: 420px;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.rightPane {
+    flex: 1;
+    min-width: 0;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.blockLibrary {
+    flex: 1 1 0;
+    min-height: 0;
+    display: grid;
+    grid-template-columns: 96px minmax(0, 1fr);
+    gap: 12px;
+}
+
+.categoryRail {
+    min-height: 0;
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding-right: 2px;
+}
+
+.categoryButton {
+    --category-color: #6b84d4;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 10px;
+    border-radius: 6px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: #121820;
+    color: #dbe5f0;
+    font-size: 12px;
+    text-align: left;
+    cursor: pointer;
+}
+
+.categoryButtonActive {
+    border-color: var(--category-color);
+    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.03) inset;
+}
+
+.categoryDot {
+    width: 8px;
+    height: 8px;
+    border-radius: 999px;
+    background: var(--category-color);
+    flex: 0 0 auto;
+}
+
+.palettePanel {
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: #111821;
+    overflow: hidden;
+}
+
+.sectionHeader {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 12px;
+    flex: 0 0 auto;
+}
+
+.sectionTitle {
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.sectionMeta {
+    font-size: 12px;
+    color: #9fb0c1;
+}
+
+.paletteList {
+    min-height: 0;
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding-right: 2px;
+}
+
+.paletteBlock {
+    --block-color: #4c97ff;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-left: 4px solid var(--block-color);
+    background: #0d1318;
+    color: #eef4fb;
+    cursor: pointer;
+    text-align: left;
+}
+
+.blockTitle {
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.blockArgs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+}
+
+.argChip {
+    display: inline-flex;
+    align-items: center;
+    padding: 2px 6px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.08);
+    color: #d7e2eb;
+    font-size: 11px;
+    line-height: 1.2;
+}
+
+.blockSlotHint {
+    font-size: 10px;
+    letter-spacing: 0;
+    color: #ffd18b;
+    text-transform: uppercase;
+}
+
+.scriptPanel {
+    flex: 1 1 0;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: #111821;
+    overflow: hidden;
+}
+
+.scriptStack {
+    min-height: 0;
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding-right: 2px;
+}
+
+.scriptTargetBar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    padding: 8px;
+    border-radius: 6px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: #0d1318;
+    color: #bfd0dc;
+    font-size: 12px;
+}
+
+.targetButton {
+    flex: 0 0 auto;
+    padding: 5px 8px;
+}
+
+.scriptBlockFrame {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.scriptBlock {
+    --block-color: #4c97ff;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-left: 4px solid var(--block-color);
+    background: #0d1318;
+    color: #eef4fb;
+    text-align: left;
+    cursor: pointer;
+}
+
+.scriptNestedArea {
+    margin-left: 14px;
+    padding-left: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    border-left: 1px solid rgba(255, 255, 255, 0.10);
+}
+
+.scriptSlot {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 6px;
+    border-radius: 6px;
+    border: 1px dashed rgba(255, 255, 255, 0.12);
+    background: rgba(255, 255, 255, 0.03);
+}
+
+.scriptSlotActive {
+    border-color: rgba(118, 183, 255, 0.72);
+    background: rgba(118, 183, 255, 0.08);
+}
+
+.scriptSlotHeader {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    gap: 8px;
+    padding: 5px 6px;
+    border: 0;
+    border-radius: 4px;
+    background: rgba(255, 255, 255, 0.06);
+    color: #d7e2eb;
+    font-size: 11px;
+    cursor: pointer;
+}
+
+.nestedScriptStack {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.scriptSlotEmpty {
+    padding: 6px;
+    border-radius: 4px;
+    color: #9fb0c1;
+    font-size: 11px;
+}
+
+.scriptBlockSelected {
+    box-shadow: 0 0 0 1px rgba(118, 183, 255, 0.38) inset;
+}
+
+.scriptBlockContainer {
+    border-style: dashed;
+}
+
+.scriptBlockFunction {
+    border-left-color: #ec4899;
+}
+
+.scriptBlockHeader {
+    width: 100%;
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 8px;
+    font-size: 12px;
+}
+
+.scriptBodySlot {
+    width: 100%;
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px dashed rgba(255, 255, 255, 0.12);
+    color: #9fb0c1;
+    font-size: 11px;
+}
+
+.inlineInspector {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    padding-top: 10px;
+}
+
+.inlineInspectorTitle {
+    font-size: 12px;
+    font-weight: 700;
+    color: #bfd0dc;
+}
+
+.fieldRow {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    font-size: 12px;
+    color: #c6d5e0;
+}
+
+.fieldRow input {
+    width: 100%;
+    padding: 8px 10px;
+    border-radius: 6px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: #0b1116;
+    color: #eef4fb;
+    outline: none;
+}
+
+.fieldRow input:focus {
+    border-color: #76b7ff;
+}
+
+.actionRow {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.stagePanel {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    min-height: 0;
+}
+
+.stageHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 12px;
+    border-radius: 6px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: #111821;
+}
+
+.stageTitle {
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.stageMeta {
+    margin-top: 2px;
+    font-size: 12px;
+    color: #9fb0c1;
+}
+
+.stageTools {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: #111821;
+}
+
+.toolSegment {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.toolButton {
+    padding: 7px 10px;
+    border-radius: 5px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: #0d1318;
+    color: #dbe5f0;
+    cursor: pointer;
+}
+
+.toolButtonActive {
+    border-color: #76b7ff;
+    color: #fff;
+}
+
+.placeTools {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 6px;
+}
+
+.placeButton {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    padding: 6px 4px;
+    border-radius: 6px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: #0d1318;
+    color: #dbe5f0;
+    cursor: pointer;
+}
+
+.placeButton img {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+    image-rendering: pixelated;
+}
+
+.placeButtonActive {
+    border-color: #76b7ff;
+}
+
+.stageViewport {
+    position: relative;
+    aspect-ratio: 12 / 8;
+    flex: 0 0 auto;
+    min-width: 0;
+    border-radius: 6px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.10);
+    background: #1b2129;
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.03);
+}
+
+.stageViewportPlacing {
+    cursor: crosshair;
+}
+
+.stageGrid {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    grid-template-columns: repeat(var(--stage-cols), minmax(0, 1fr));
+    grid-template-rows: repeat(var(--stage-rows), minmax(0, 1fr));
+    background-color: #1b2129;
+    background-image:
+        linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+    background-size:
+        calc(100% / var(--stage-cols)) calc(100% / var(--stage-rows)),
+        calc(100% / var(--stage-cols)) calc(100% / var(--stage-rows));
+}
+
+.stageOverlay {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.stageNode {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+    padding: 2px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 4px;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.24));
+    color: #f2f7ff;
+    cursor: pointer;
+    overflow: visible;
+}
+
+.stageNode img {
+    width: 76%;
+    height: 76%;
+    object-fit: contain;
+    image-rendering: pixelated;
+    pointer-events: none;
+}
+
+.stageNodeProcessor {
+    background: linear-gradient(180deg, rgba(118, 183, 255, 0.10), rgba(0, 0, 0, 0.24));
+}
+
+.stageNodeSelected {
+    box-shadow: 0 0 0 2px #76b7ff inset;
+}
+
+.stageNodeLinkSource {
+    box-shadow: 0 0 0 2px #ffd166 inset;
+}
+
+.stageNodeActiveProcessor {
+    box-shadow:
+        0 0 0 2px #ffd166 inset,
+        0 0 14px rgba(255, 211, 102, 0.22);
+}
+
+.nodeBadge {
+    position: absolute;
+    top: -16px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 0 4px;
+    border-radius: 4px;
+    border: 1px solid rgba(255, 255, 255, 0.10);
+    background: rgba(13, 19, 24, 0.92);
+    color: #ffd66b;
+    font-size: 11px;
+    white-space: nowrap;
+}
+
+.nodeName {
+    font-size: 10px;
+    line-height: 1;
+    white-space: nowrap;
+    color: #e7eef7;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.85);
+}
+
+.stageGhost {
+    position: relative;
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    border: 2px dashed rgba(110, 231, 183, 0.9);
+    border-radius: 4px;
+    background: rgba(110, 231, 183, 0.16);
+    color: #f3fff9;
+    font-size: 11px;
+    pointer-events: none;
+}
+
+.stageGhost img {
+    width: 62%;
+    height: 62%;
+    object-fit: contain;
+    image-rendering: pixelated;
+}
+
+.stageGhostInvalid {
+    border-color: rgba(251, 113, 133, 0.95);
+    background: rgba(251, 113, 133, 0.15);
+}
+
+.linkLineShadow {
+    fill: none;
+    stroke: rgba(0, 0, 0, 0.88);
+    stroke-linecap: round;
+    stroke-width: 0.16;
+}
+
+.linkLine {
+    fill: none;
+    stroke: #f2d28a;
+    stroke-linecap: round;
+    stroke-width: 0.07;
+}
+
+.linkDot {
+    fill: #f2d28a;
+    stroke: #2b2110;
+    stroke-width: 0.05;
+}
+
+.linkIndex {
+    fill: #ffffff;
+    font-size: 0.45px;
+    font-weight: 700;
+    text-anchor: middle;
+    dominant-baseline: middle;
+}
+
+.rangeCircle {
+    fill: none;
+    stroke: rgba(255, 211, 92, 0.45);
+    stroke-dasharray: 0.45 0.35;
+    stroke-width: 0.08;
+}
+
+.inspectorPanel {
+    flex: 1 1 auto;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: #111821;
+    overflow: hidden;
+}
+
+.inspectorTabs {
+    display: flex;
+    gap: 6px;
+    flex: 0 0 auto;
+}
+
+.inspectorTab {
+    flex: 1 1 0;
+    padding: 8px 10px;
+    border-radius: 5px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: #0d1318;
+    color: #c1cfdb;
+    cursor: pointer;
+}
+
+.inspectorTabActive {
+    border-color: #76b7ff;
+    color: #ffffff;
+    background: #142030;
+}
+
+.inspectorContent {
+    min-height: 0;
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding-right: 2px;
+}
+
+.processorList {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.processorCard {
+    flex: 1 1 180px;
+    min-width: 160px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px;
+    border-radius: 6px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: #0d1318;
+    color: #eef4fb;
+    cursor: pointer;
+    text-align: left;
+}
+
+.processorCard img {
+    width: 28px;
+    height: 28px;
+    object-fit: contain;
+    image-rendering: pixelated;
+    flex: 0 0 auto;
+}
+
+.processorCard span {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.processorCard strong {
+    font-size: 12px;
+    line-height: 1.2;
+}
+
+.processorCard small {
+    font-size: 11px;
+    color: #9fb0c1;
+}
+
+.processorCardActive {
+    border-color: #76b7ff;
+    box-shadow: 0 0 0 1px rgba(118, 183, 255, 0.2) inset;
+}
+
+.detailCard {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: #0d1318;
+}
+
+.detailCardHeader {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 8px;
+}
+
+.detailCardHeader strong {
+    font-size: 13px;
+}
+
+.detailCardHeader small {
+    color: #9fb0c1;
+    font-size: 11px;
+}
+
+.linkRow {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    padding: 6px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.snapshotPreview {
+    max-height: 280px;
+    margin: 0;
+    overflow: auto;
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    background: #0b0f14;
+    color: #d7e2eb;
+    font-size: 11px;
+    white-space: pre-wrap;
+}
+
+.diagnosticRow {
+    padding: 8px;
+    border-radius: 6px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: #0d1318;
+    font-size: 12px;
+}
+
+.diagnosticwarning {
+    border-color: rgba(255, 211, 92, 0.28);
+    background: rgba(255, 211, 92, 0.08);
+}
+
+.diagnosticerror {
+    border-color: rgba(251, 113, 133, 0.28);
+    background: rgba(251, 113, 133, 0.08);
+}
+
+.diagnosticsuccess {
+    border-color: rgba(110, 231, 183, 0.28);
+    background: rgba(110, 231, 183, 0.08);
+}
+
+.emptyState {
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px dashed rgba(255, 255, 255, 0.10);
+    background: rgba(255, 255, 255, 0.03);
+    color: #9fb0c1;
+    font-size: 12px;
+}
+
+.primaryButton,
+.secondaryButton,
+.dangerButton {
+    padding: 7px 10px;
+    border-radius: 5px;
+    border: 1px solid transparent;
+    color: #eef4fb;
+    cursor: pointer;
+}
+
+.primaryButton {
+    background: #4c97ff;
+}
+
+.secondaryButton {
+    background: #25303c;
+    border-color: rgba(255, 255, 255, 0.08);
+}
+
+.secondaryButtonActive {
+    background: #14314b;
+    border-color: #76b7ff;
+}
+
+.dangerButton {
+    background: #a2384a;
+}
+
+.primaryButton:hover,
+.secondaryButton:hover,
+.dangerButton:hover,
+.toolButton:hover,
+.placeButton:hover,
+.categoryButton:hover,
+.processorCard:hover,
+.paletteBlock:hover,
+.scriptBlock:hover,
+.inspectorTab:hover {
+    filter: brightness(1.06);
+}

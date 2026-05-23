@@ -45,6 +45,7 @@ const SpriteSelectorComponent = function (props) {
         editingTarget,
         hoveredTarget,
         intl,
+        libraryButtonTitle,
         onChangeSpriteDirection,
         onChangeSpriteName,
         onChangeSpriteRotationStyle,
@@ -67,6 +68,7 @@ const SpriteSelectorComponent = function (props) {
         spriteFileInput,
         sprites,
         stageSize,
+        useLibraryOnlyMenu,
         ...componentProps
     } = props;
     let selectedSprite = sprites[selectedId];
@@ -75,6 +77,36 @@ const SpriteSelectorComponent = function (props) {
         selectedSprite = {};
         spriteInfoDisabled = true;
     }
+    const chooseLibraryLabel = libraryButtonTitle || intl.formatMessage(messages.addSpriteFromLibrary);
+    const moreButtons = useLibraryOnlyMenu ? [
+        {
+            title: chooseLibraryLabel,
+            img: searchIcon,
+            onClick: onNewSpriteClick
+        }
+    ] : [
+        {
+            title: intl.formatMessage(messages.addSpriteFromFile),
+            img: fileUploadIcon,
+            onClick: onFileUploadClick,
+            fileAccept: '.svg, .png, .bmp, .jpg, .jpeg, .jfif, .webp, .sprite2, .sprite3, .gif',
+            fileChange: onSpriteUpload,
+            fileInput: spriteFileInput,
+            fileMultiple: true
+        }, {
+            title: intl.formatMessage(messages.addSpriteFromSurprise),
+            img: surpriseIcon,
+            onClick: onSurpriseSpriteClick
+        }, {
+            title: intl.formatMessage(messages.addSpriteFromPaint),
+            img: paintIcon,
+            onClick: onPaintSpriteClick
+        }, {
+            title: chooseLibraryLabel,
+            img: searchIcon,
+            onClick: onNewSpriteClick
+        }
+    ];
     return (
         <Box
             className={styles.spriteSelector}
@@ -115,30 +147,8 @@ const SpriteSelectorComponent = function (props) {
             <ActionMenu
                 className={styles.addButton}
                 img={spriteIcon}
-                moreButtons={[
-                    {
-                        title: intl.formatMessage(messages.addSpriteFromFile),
-                        img: fileUploadIcon,
-                        onClick: onFileUploadClick,
-                        fileAccept: '.svg, .png, .bmp, .jpg, .jpeg, .jfif, .webp, .sprite2, .sprite3, .gif',
-                        fileChange: onSpriteUpload,
-                        fileInput: spriteFileInput,
-                        fileMultiple: true
-                    }, {
-                        title: intl.formatMessage(messages.addSpriteFromSurprise),
-                        img: surpriseIcon,
-                        onClick: onSurpriseSpriteClick // TODO need real function for this
-                    }, {
-                        title: intl.formatMessage(messages.addSpriteFromPaint),
-                        img: paintIcon,
-                        onClick: onPaintSpriteClick // TODO need real function for this
-                    }, {
-                        title: intl.formatMessage(messages.addSpriteFromLibrary),
-                        img: searchIcon,
-                        onClick: onNewSpriteClick
-                    }
-                ]}
-                title={intl.formatMessage(messages.addSpriteFromLibrary)}
+                moreButtons={moreButtons}
+                title={chooseLibraryLabel}
                 tooltipPlace={isRtl(intl.locale) ? 'right' : 'left'}
                 onClick={onNewSpriteClick}
             />
@@ -153,6 +163,7 @@ SpriteSelectorComponent.propTypes = {
         receivedBlocks: PropTypes.bool
     }),
     intl: intlShape.isRequired,
+    libraryButtonTitle: PropTypes.string,
     onChangeSpriteDirection: PropTypes.func,
     onChangeSpriteName: PropTypes.func,
     onChangeSpriteRotationStyle: PropTypes.func,
@@ -186,7 +197,13 @@ SpriteSelectorComponent.propTypes = {
             order: PropTypes.number.isRequired
         })
     }),
-    stageSize: PropTypes.oneOf(Object.keys(STAGE_DISPLAY_SIZES)).isRequired
+    stageSize: PropTypes.oneOf(Object.keys(STAGE_DISPLAY_SIZES)).isRequired,
+    useLibraryOnlyMenu: PropTypes.bool
+};
+
+SpriteSelectorComponent.defaultProps = {
+    libraryButtonTitle: null,
+    useLibraryOnlyMenu: false
 };
 
 export default injectIntl(SpriteSelectorComponent);

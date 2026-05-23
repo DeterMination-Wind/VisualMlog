@@ -1,5 +1,7 @@
 import LazyScratchBlocks from './tw-lazy-scratch-blocks';
 import {defaultBlockColors} from './themes';
+import {mindustryLogicCategories} from './mlog-mindustry-blocks';
+import {mlogFlowCategory} from './mlog-sugar-blocks';
 
 const categorySeparator = '<sep gap="36"/>';
 
@@ -733,12 +735,81 @@ const variables = function (isInitialSetup, isStage, targetId, colors) {
     `;
 };
 
+const lists = function () {
+    return `
+    <category
+        name="list"
+        id="lists"
+        colour="#8b5cf6"
+        secondaryColour="#6d28d9">
+        <block type="mlog_list_define">
+            <value name="start">
+                <shadow type="math_number">
+                    <field name="NUM">0</field>
+                </shadow>
+            </value>
+            <value name="length">
+                <shadow type="math_number">
+                    <field name="NUM">16</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="mlog_list_get">
+            <value name="index">
+                <shadow type="math_number">
+                    <field name="NUM">0</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="mlog_list_set">
+            <value name="index">
+                <shadow type="math_number">
+                    <field name="NUM">0</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="mlog_list_find_first">
+            <value name="value">
+                <shadow type="text">
+                    <field name="TEXT">x</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="mlog_list_count_value">
+            <value name="value">
+                <shadow type="text">
+                    <field name="TEXT">x</field>
+                </shadow>
+            </value>
+        </block>
+    </category>
+    `;
+};
+
+const flow = function () {
+    return `
+    <category
+        name="${xmlEscape(mlogFlowCategory.name)}"
+        id="${mlogFlowCategory.id}"
+        colour="${mlogFlowCategory.color}"
+        secondaryColour="${mlogFlowCategory.color}">
+        <block type="if"/>
+        <block type="if_else"/>
+        <block type="when"/>
+        <block type="when_case"/>
+        <block type="when_else"/>
+        <block type="while"/>
+        <block type="for_range"/>
+    </category>
+    `;
+};
+
 const myBlocks = function (isInitialSetup, isStage, targetId, colors) {
     // Note: the category's secondaryColour matches up with the blocks' tertiary color, both used for border color.
     return `
     <category
-        name="%{BKY_CATEGORY_MYBLOCKS}"
-        id="myBlocks"
+        name="fun"
+        id="fun"
         colour="${colors.primary}"
         secondaryColour="${colors.tertiary}"
         custom="PROCEDURE">
@@ -755,6 +826,17 @@ const extraTurboWarpBlocks = `
 
 const xmlOpen = '<xml style="display: none">';
 const xmlClose = '</xml>';
+
+const mindustryCategoryXML = category => `
+    <category
+        name="${xmlEscape(category.name)}"
+        id="${category.id}"
+        colour="${category.color}"
+        secondaryColour="${category.color}">
+        ${category.blocks.map(definition => `<block type="${definition.type}"/>`).join('\n        ')}
+        ${categorySeparator}
+    </category>
+`;
 
 /**
  * @param {!boolean} isInitialSetup - Whether the toolbox is for initial setup. If the mode is "initial setup",
@@ -791,17 +873,6 @@ const makeToolboxXML = function (isInitialSetup, isStage = true, targetId, categ
         }
         // return `undefined`
     };
-    const motionXML = moveCategory('motion') || motion(isInitialSetup, isStage, targetId, colors.motion);
-    const looksXML = moveCategory('looks') ||
-        looks(isInitialSetup, isStage, targetId, costumeName, backdropName, colors.looks);
-    const soundXML = moveCategory('sound') || sound(isInitialSetup, isStage, targetId, soundName, colors.sounds);
-    const eventsXML = moveCategory('event') || events(isInitialSetup, isStage, targetId, colors.event);
-    const controlXML = moveCategory('control') || control(isInitialSetup, isStage, targetId, colors.control);
-    const sensingXML = moveCategory('sensing') || sensing(isInitialSetup, isStage, targetId, colors.sensing);
-    const operatorsXML = moveCategory('operators') || operators(isInitialSetup, isStage, targetId, colors.operators);
-    const variablesXML = moveCategory('data') || variables(isInitialSetup, isStage, targetId, colors.data);
-    const myBlocksXML = moveCategory('procedures') || myBlocks(isInitialSetup, isStage, targetId, colors.more);
-
     // Always display TurboWarp blocks as the first extension, if it exists,
     // and also add an "is compiled?" block to the top.
     let turbowarpXML = moveCategory('tw');
@@ -809,18 +880,22 @@ const makeToolboxXML = function (isInitialSetup, isStage = true, targetId, categ
         turbowarpXML = turbowarpXML.replace('<block', `${extraTurboWarpBlocks}<block`);
     }
 
-    const everything = [
-        xmlOpen,
-        motionXML, gap,
-        looksXML, gap,
-        soundXML, gap,
-        eventsXML, gap,
-        controlXML, gap,
-        sensingXML, gap,
-        operatorsXML, gap,
-        variablesXML, gap,
-        myBlocksXML
-    ];
+    const listsXML = moveCategory('lists') || lists(isInitialSetup, isStage, targetId, colors.more);
+    const flowXML = flow();
+    const operatorsXML = operators(isInitialSetup, isStage, targetId, colors.operators);
+    const myBlocksXML = moveCategory('procedures') || myBlocks(isInitialSetup, isStage, targetId, colors.more);
+    const everything = [xmlOpen];
+
+    mindustryLogicCategories
+        .map(mindustryCategoryXML)
+        .forEach((categoryXML, index) => {
+            if (index > 0) {
+                everything.push(gap);
+            }
+            everything.push(categoryXML);
+        });
+
+    everything.push(gap, flowXML, gap, operatorsXML, gap, listsXML, gap, myBlocksXML);
 
     if (turbowarpXML) {
         everything.push(gap, turbowarpXML);

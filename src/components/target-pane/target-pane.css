@@ -7,10 +7,218 @@
     flex-grow: 1;
 }
 
+.graph-target-pane {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    gap: calc($space / 2);
+}
+
+.graph-node-pane {
+    min-width: 0;
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    gap: calc($space / 2);
+}
+
+.graph-pane-header {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.graph-pane-title {
+    font-size: 0.85rem;
+    font-weight: bold;
+    color: #1d2b3b;
+}
+
+.graph-pane-meta,
+.graph-pane-status {
+    font-size: 0.625rem;
+    color: #5f748b;
+}
+
+.graph-node-list {
+    min-height: 0;
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    overflow: auto;
+}
+
+.graph-node-card {
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+    padding: 0.45rem;
+    border: 1px solid rgba(87, 103, 121, 0.18);
+    border-radius: $space;
+    background: #ffffff;
+    color: #253445;
+    text-align: left;
+    cursor: pointer;
+}
+
+.graph-node-card img {
+    width: 1.8rem;
+    height: 1.8rem;
+    object-fit: contain;
+    image-rendering: pixelated;
+    flex: 0 0 auto;
+}
+
+.graph-node-card-selected {
+    border-color: #4d97ff;
+    box-shadow: 0 0 0 3px rgba(76, 151, 255, 0.15);
+}
+
+.graph-node-text {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.graph-node-text strong,
+.graph-node-text small {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.graph-node-text strong {
+    font-size: 0.7rem;
+}
+
+.graph-node-text small {
+    margin-top: 0.15rem;
+    font-size: 0.56rem;
+    color: #6a8097;
+}
+
+.graph-link-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    padding: 0.55rem;
+    border: 1px solid rgba(87, 103, 121, 0.18);
+    border-radius: $space;
+    background: #ffffff;
+}
+
+.graph-link-header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 0.5rem;
+    color: #223244;
+}
+
+.graph-link-header strong {
+    font-size: 0.72rem;
+}
+
+.graph-link-header small {
+    font-size: 0.58rem;
+    color: #7288a0;
+}
+
+.graph-link-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.4rem;
+}
+
+.graph-link-select,
+.graph-link-delete {
+    border: 0;
+    border-radius: 0.4rem;
+    cursor: pointer;
+}
+
+.graph-link-select {
+    flex: 1 1 auto;
+    min-width: 0;
+    padding: 0.3rem 0.45rem;
+    background: #eef5fb;
+    color: #29415a;
+    text-align: left;
+    font-size: 0.6rem;
+}
+
+.graph-link-delete {
+    flex: 0 0 auto;
+    padding: 0.3rem 0.45rem;
+    background: #a2384a;
+    color: #ffffff;
+    font-size: 0.58rem;
+}
+
+.graph-empty-state {
+    padding: 0.5rem;
+    border-radius: 0.45rem;
+    background: #f5f8fb;
+    color: #677e95;
+    font-size: 0.58rem;
+}
+
 .stage-selector-wrapper {
     display: flex;
     flex-basis: 72px;
     flex-shrink: 0;
+}
+
+.graph-preview-pane {
+    flex: 0 0 92px;
+    display: flex;
+}
+
+.graph-stage-card {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.35rem;
+    padding: 0.45rem;
+    border: 1px solid rgba(87, 103, 121, 0.18);
+    border-radius: $space;
+    background: #ffffff;
+    color: #26384a;
+}
+
+.graph-stage-card-header {
+    font-size: 0.62rem;
+    font-weight: bold;
+    text-align: center;
+}
+
+.graph-stage-card-preview {
+    flex: 1 1 auto;
+    min-height: 120px;
+    padding: 0.25rem;
+    border-radius: 0.45rem;
+    background: #13202d;
+    overflow: hidden;
+}
+
+.graph-stage-card-meta {
+    font-size: 0.55rem;
+    color: #698099;
+    text-align: center;
+}
+
+.graph-stage-card-meta-button {
+    border: 0;
+    border-radius: 0.4rem;
+    background: #eef5fb;
+    color: #29415a;
+    font-size: 0.55rem;
+    text-align: center;
+    padding: 0.3rem 0.4rem;
+    cursor: pointer;
 }
 
 [dir="ltr"] .stage-selector-wrapper {

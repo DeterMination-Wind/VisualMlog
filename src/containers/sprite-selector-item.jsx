@@ -120,6 +120,8 @@ class SpriteSelectorItem extends React.PureComponent {
         const {
             /* eslint-disable no-unused-vars */
             asset,
+            costumeURL,
+            details,
             id,
             index,
             onClick,
@@ -129,7 +131,6 @@ class SpriteSelectorItem extends React.PureComponent {
             onRenameButtonClick,
             dragPayload,
             receivedBlocks,
-            costumeURL,
             vm,
             /* eslint-enable no-unused-vars */
             ...props
@@ -137,7 +138,7 @@ class SpriteSelectorItem extends React.PureComponent {
         return (
             <SpriteSelectorItemComponent
                 componentRef={this.setRef}
-                costumeURL={this.getCostumeData()}
+                costumeURL={costumeURL || this.getCostumeData()}
                 preventContextMenu={this.dragRecognizer.gestureInProgress()}
                 onClick={this.handleClick}
                 onDeleteButtonClick={onDeleteButtonClick ? this.handleDelete : null}
@@ -147,6 +148,7 @@ class SpriteSelectorItem extends React.PureComponent {
                 onMouseDown={this.handleMouseDown}
                 onMouseEnter={this.handleMouseEnter}
                 onMouseLeave={this.handleMouseLeave}
+                details={details}
                 {...props}
             />
         );

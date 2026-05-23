@@ -10,9 +10,11 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const autoprefixer = require('autoprefixer');
 const postcssVars = require('postcss-simple-vars');
 const postcssImport = require('postcss-import');
+const {createMlogCheckerRunner} = require('./scripts/mlog-checker-runner');
 
 const STATIC_PATH = process.env.STATIC_PATH || '/static';
 const {APP_NAME} = require('./src/lib/brand');
+const MLOG_CHECKER_JAR = process.env.MLOG_CHECKER_JAR || path.resolve(__dirname, '..', 'MlogChecker', 'build', 'libs', 'MlogChecker.jar');
 
 const root = process.env.ROOT || '';
 if (root.length > 0 && !root.endsWith('/')) {
@@ -37,6 +39,57 @@ const base = {
         disableHostCheck: true,
         compress: true,
         port: process.env.PORT || 8601,
+        before (app) {
+            const checkerRunner = createMlogCheckerRunner({
+                javaPath: process.env.MLOG_CHECKER_JAVA || 'java',
+                jarPath: MLOG_CHECKER_JAR,
+                timeoutMs: Number(process.env.MLOG_CHECKER_TIMEOUT || 15000)
+            });
+
+            const sendJson = (res, statusCode, payload) => {
+                res.status(statusCode);
+                res.setHeader('content-type', 'application/json; charset=utf-8');
+                res.end(JSON.stringify(payload));
+            };
+
+            app.get('/api/mlog-check', (req, res) => {
+                sendJson(res, 200, {
+                    available: checkerRunner.isAvailable(),
+                    jarPath: checkerRunner.jarPath,
+                    javaPath: checkerRunner.javaPath,
+                    timeoutMs: checkerRunner.timeoutMs
+                });
+            });
+
+            app.post('/api/mlog-check', (req, res) => {
+                let raw = '';
+                req.on('data', chunk => {
+                    raw += chunk;
+                });
+                req.on('end', () => {
+                    try {
+                        const payload = raw ? JSON.parse(raw) : {};
+                        const result = checkerRunner.check(payload);
+                        sendJson(res, 200, result);
+                    } catch (error) {
+                        sendJson(res, 400, {
+                            exitCode: 2,
+                            stdout: '',
+                            stderr: error instanceof Error ? error.message : String(error),
+                            error: error instanceof Error ? error.message : String(error)
+                        });
+                    }
+                });
+                req.on('error', error => {
+                    sendJson(res, 500, {
+                        exitCode: 2,
+                        stdout: '',
+                        stderr: error instanceof Error ? error.message : String(error),
+                        error: error instanceof Error ? error.message : String(error)
+                    });
+                });
+            });
+        },
         // allows ROUTING_STYLE=wildcard to work properly
         historyApiFallback: {
             rewrites: [

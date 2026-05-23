@@ -12,6 +12,7 @@ import Question from '../../containers/question.jsx';
 import MicIndicator from '../mic-indicator/mic-indicator.jsx';
 import {STAGE_DISPLAY_SIZES} from '../../lib/layout-constants.js';
 import {getStageDimensions, getMinWidth} from '../../lib/screen-utils.js';
+import MlogStageGraph from './mlog-stage-graph.jsx';
 import styles from './stage.css';
 
 const StageComponent = props => {
@@ -28,6 +29,7 @@ const StageComponent = props => {
         micIndicator,
         question,
         stageSize,
+        useGraphStage,
         useEditorDragStyle,
         onDeactivateColorPicker,
         onDoubleClick,
@@ -40,6 +42,34 @@ const StageComponent = props => {
     const transformStyle = stageDimensions.width < minWidth && !isFullScreen ? {
         transform: `translateX(${(minWidth - stageDimensions.width) / (isRtl ? -2 : 2)}px)`
     } : {};
+
+    if (useGraphStage) {
+        return (
+            <Box
+                className={classNames(
+                    styles.stageWrapper,
+                    {[styles.withColorPicker]: !isFullScreen && isColorPicking}
+                )}
+                style={isPlayerOnly ? null : {
+                    minWidth: `${minWidth + 2}px`
+                }}
+            >
+                <Box
+                    className={classNames(
+                        styles.stage,
+                        {[styles.fullScreen]: isFullScreen}
+                    )}
+                    style={{
+                        height: stageDimensions.height,
+                        width: stageDimensions.width,
+                        ...transformStyle
+                    }}
+                >
+                    <MlogStageGraph />
+                </Box>
+            </Box>
+        );
+    }
 
     return (
         <React.Fragment>
@@ -169,9 +199,11 @@ StageComponent.propTypes = {
     onQuestionAnswered: PropTypes.func,
     question: PropTypes.string,
     stageSize: PropTypes.oneOf(Object.keys(STAGE_DISPLAY_SIZES)).isRequired,
+    useGraphStage: PropTypes.bool,
     useEditorDragStyle: PropTypes.bool
 };
 StageComponent.defaultProps = {
-    dragRef: () => {}
+    dragRef: () => {},
+    useGraphStage: false
 };
 export default StageComponent;

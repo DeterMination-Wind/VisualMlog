@@ -1,0 +1,258 @@
+@import "../../css/units.css";
+
+.graph-editor {
+    width: 100%;
+    height: 100%;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(180deg, #121922, #0e151d);
+    color: #ecf4ff;
+}
+
+.graph-header {
+    flex: 0 0 auto;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 0.5rem;
+    padding: 0.65rem 0.8rem 0.35rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.graph-heading {
+    min-width: 0;
+}
+
+.graph-title {
+    font-size: 0.8rem;
+    font-weight: 700;
+    line-height: 1.15;
+}
+
+.graph-meta {
+    margin-top: 0.15rem;
+    font-size: 0.62rem;
+    color: rgba(219, 232, 246, 0.78);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.graph-status {
+    flex: 0 0 auto;
+    padding: 0.35rem 0.65rem 0.45rem;
+    font-size: 0.58rem;
+    color: rgba(220, 234, 247, 0.72);
+}
+
+.graph-viewport {
+    position: relative;
+    flex: 1 1 auto;
+    width: 100%;
+    height: 100%;
+    min-height: 0;
+    overflow: hidden;
+    background: #141d26;
+}
+
+.graph-grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+        linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    background-size:
+        72px 72px,
+        72px 72px;
+}
+
+.graph-grid-interactive {
+    cursor: default;
+}
+
+.graph-overlay {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.graph-node {
+    position: absolute;
+    z-index: 2;
+    transform: translate(-50%, -50%);
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: #f4f8fd;
+    cursor: pointer;
+    overflow: visible;
+}
+
+.graph-node-core {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: var(--node-core-size, 20px);
+    height: var(--node-core-size, 20px);
+    transform: translate(-50%, -50%);
+    border: 2px solid rgba(8, 12, 17, 0.86);
+    border-radius: 999px;
+    background: #8fa2b5;
+    box-shadow:
+        0 0 0 1px rgba(255, 255, 255, 0.08) inset,
+        0 4px 12px rgba(0, 0, 0, 0.24);
+    pointer-events: none;
+}
+
+.graph-node-processor .graph-node-core {
+    background: #74b5ff;
+}
+
+.graph-node-selected .graph-node-core {
+    box-shadow:
+        0 0 0 3px #ffd54a,
+        0 0 18px rgba(255, 213, 74, 0.36);
+}
+
+.graph-node-link-source .graph-node-core {
+    box-shadow:
+        0 0 0 3px #ffd166,
+        0 0 14px rgba(255, 209, 102, 0.28);
+}
+
+.graph-node-label {
+    position: absolute;
+    top: calc(50% - 2rem);
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 0 0.25rem;
+    border-radius: 0.25rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(12, 18, 24, 0.94);
+    color: #ffe08b;
+    font-size: 0.55rem;
+    white-space: nowrap;
+}
+
+.graph-node-name {
+    position: absolute;
+    top: calc(50% + 1rem);
+    left: 50%;
+    transform: translateX(-50%);
+    min-width: 3rem;
+    font-size: 0.52rem;
+    line-height: 1.1;
+    white-space: nowrap;
+    text-align: center;
+    color: #ebf2f8;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.86);
+    pointer-events: none;
+}
+
+.link-line-shadow {
+    fill: none;
+    stroke: rgba(0, 0, 0, 0.88);
+    stroke-linecap: round;
+    stroke-width: 0.16;
+}
+
+.link-line {
+    fill: none;
+    stroke: #f2d28a;
+    stroke-linecap: round;
+    stroke-width: 0.07;
+}
+
+.link-line-muted-shadow {
+    fill: none;
+    stroke: rgba(0, 0, 0, 0.34);
+    stroke-linecap: round;
+    stroke-width: 0.1;
+}
+
+.link-line-muted {
+    fill: none;
+    stroke: rgba(208, 220, 233, 0.28);
+    stroke-linecap: round;
+    stroke-width: 0.045;
+}
+
+.link-dot {
+    fill: #f2d28a;
+    stroke: #2b2110;
+    stroke-width: 0.05;
+}
+
+.link-index {
+    fill: #ffffff;
+    font-size: 0.45px;
+    font-weight: 700;
+    text-anchor: middle;
+    dominant-baseline: middle;
+}
+
+.range-circle {
+    fill: none;
+    stroke: rgba(255, 211, 92, 0.45);
+    stroke-dasharray: 0.45 0.35;
+    stroke-width: 0.08;
+}
+
+.graph-preview {
+    width: 100%;
+    height: 100%;
+    min-height: 0;
+    display: flex;
+    flex: 1 1 auto;
+}
+
+.graph-preview > .graph-viewport {
+    flex: 1 1 auto;
+}
+
+.graph-preview .graph-viewport {
+    border-radius: 0.35rem;
+}
+
+.graph-preview .graph-node {
+    transform: translate(-50%, -50%);
+}
+
+.graph-preview .graph-node-name {
+    font-size: 0.36rem;
+}
+
+.graph-preview .graph-node-label {
+    font-size: 0.42rem;
+    top: -0.78rem;
+}
+
+.graph-shortcut-strip {
+    flex: 0 0 auto;
+    display: flex;
+    gap: 0.35rem;
+    padding: 0.45rem 0.65rem 0.25rem;
+    overflow-x: auto;
+}
+
+.graph-shortcut-button {
+    width: 2.2rem;
+    height: 2.2rem;
+    flex: 0 0 auto;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 999px;
+    background: rgba(10, 17, 24, 0.72);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.graph-shortcut-button img {
+    width: 1.3rem;
+    height: 1.3rem;
+    object-fit: contain;
+    image-rendering: pixelated;
+}

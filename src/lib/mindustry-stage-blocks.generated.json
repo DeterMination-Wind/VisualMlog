@@ -1,0 +1,2976 @@
+[
+  {
+    "type": "constructor",
+    "label": "构筑器",
+    "processor": false,
+    "assetPath": "payload/constructor.png"
+  },
+  {
+    "type": "logic-processor",
+    "label": "逻辑处理器",
+    "category": "processors",
+    "processor": true,
+    "size": {
+      "w": 2,
+      "h": 2
+    },
+    "stem": "logic",
+    "assetPath": "logic/logic-processor.png",
+    "range": 176
+  },
+  {
+    "type": "hyper-processor",
+    "label": "超核处理器",
+    "category": "processors",
+    "processor": true,
+    "size": {
+      "w": 3,
+      "h": 3
+    },
+    "stem": "hyper",
+    "assetPath": "logic/hyper-processor.png",
+    "range": 336
+  },
+  {
+    "type": "micro-processor",
+    "label": "微型处理器",
+    "category": "processors",
+    "processor": true,
+    "size": {
+      "w": 1,
+      "h": 1
+    },
+    "stem": "micro",
+    "assetPath": "logic/micro-processor.png",
+    "range": 80
+  },
+  {
+    "type": "world-processor",
+    "label": "世界处理器",
+    "category": "processors",
+    "processor": true,
+    "size": {
+      "w": 1,
+      "h": 1
+    },
+    "stem": "world",
+    "assetPath": "logic/world-processor.png",
+    "range": "infinite"
+  },
+  {
+    "type": "memory-cell",
+    "label": "内存元",
+    "category": "memory",
+    "processor": false,
+    "size": {
+      "w": 1,
+      "h": 1
+    },
+    "stem": "cell",
+    "assetPath": "logic/memory-cell.png"
+  },
+  {
+    "type": "memory-bank",
+    "label": "内存库",
+    "category": "memory",
+    "processor": false,
+    "size": {
+      "w": 2,
+      "h": 2
+    },
+    "stem": "bank",
+    "assetPath": "logic/memory-bank.png"
+  },
+  {
+    "type": "world-cell",
+    "label": "世界内存元",
+    "category": "memory",
+    "processor": false,
+    "size": {
+      "w": 1,
+      "h": 1
+    },
+    "stem": "worldcell",
+    "assetPath": "logic/world-cell.png"
+  },
+  {
+    "type": "message",
+    "label": "信息板",
+    "category": "io",
+    "processor": false,
+    "size": {
+      "w": 1,
+      "h": 1
+    },
+    "stem": "message",
+    "assetPath": "logic/message.png"
+  },
+  {
+    "type": "reinforced-message",
+    "label": "强化信息板",
+    "category": "io",
+    "processor": false,
+    "size": {
+      "w": 1,
+      "h": 1
+    },
+    "stem": "rmessage",
+    "assetPath": "logic/reinforced-message.png"
+  },
+  {
+    "type": "world-message",
+    "label": "世界信息板",
+    "category": "io",
+    "processor": false,
+    "size": {
+      "w": 1,
+      "h": 1
+    },
+    "stem": "worldmessage",
+    "assetPath": "logic/world-message.png"
+  },
+  {
+    "type": "switch",
+    "label": "开关",
+    "category": "logic",
+    "processor": false,
+    "size": {
+      "w": 1,
+      "h": 1
+    },
+    "stem": "switch",
+    "assetPath": "logic/switch.png"
+  },
+  {
+    "type": "world-switch",
+    "label": "世界开关",
+    "category": "logic",
+    "processor": false,
+    "size": {
+      "w": 1,
+      "h": 1
+    },
+    "stem": "worldswitch",
+    "assetPath": "logic/world-switch.png"
+  },
+  {
+    "type": "tile-logic-display",
+    "label": "逻辑显示单元",
+    "category": "logic",
+    "processor": false,
+    "size": {
+      "w": 1,
+      "h": 1
+    },
+    "stem": "tilelogicdisplay",
+    "assetPath": "logic/tile-logic-display.png"
+  },
+  {
+    "type": "logic-display",
+    "label": "逻辑显示屏",
+    "category": "display",
+    "processor": false,
+    "size": {
+      "w": 3,
+      "h": 3
+    },
+    "stem": "display",
+    "assetPath": "logic/logic-display.png"
+  },
+  {
+    "type": "large-logic-display",
+    "label": "大型逻辑显示屏",
+    "category": "display",
+    "processor": false,
+    "size": {
+      "w": 6,
+      "h": 6
+    },
+    "stem": "largedisplay",
+    "assetPath": "logic/large-logic-display.png"
+  },
+  {
+    "type": "canvas",
+    "label": "画板",
+    "category": "display",
+    "processor": false,
+    "size": {
+      "w": 2,
+      "h": 2
+    },
+    "stem": "canvas",
+    "assetPath": "logic/canvas.png"
+  },
+  {
+    "type": "large-canvas",
+    "label": "Large Canvas",
+    "category": "display",
+    "processor": false,
+    "size": {
+      "w": 3,
+      "h": 3
+    },
+    "stem": "largecanvas",
+    "assetPath": "logic/large-canvas.png"
+  },
+  {
+    "type": "bridge-conveyor",
+    "label": "传送带桥",
+    "category": "distribution",
+    "processor": false,
+    "size": {
+      "w": 1,
+      "h": 1
+    },
+    "stem": "bridgeconveyor",
+    "assetPath": "distribution/bridge-conveyor.png"
+  },
+  {
+    "type": "distributor",
+    "label": "分配器",
+    "category": "distribution",
+    "processor": false,
+    "size": {
+      "w": 2,
+      "h": 2
+    },
+    "stem": "distributor",
+    "assetPath": "distribution/distributor.png"
+  },
+  {
+    "type": "duct-bridge",
+    "label": "物品管道桥",
+    "category": "distribution",
+    "processor": false,
+    "size": {
+      "w": 1,
+      "h": 1
+    },
+    "stem": "ductbridge",
+    "assetPath": "distribution/ducts/duct-bridge.png"
+  },
+  {
+    "type": "duct-router",
+    "label": "物品管道路由器",
+    "category": "distribution",
+    "processor": false,
+    "size": {
+      "w": 1,
+      "h": 1
+    },
+    "stem": "ductrouter",
+    "assetPath": "distribution/ducts/duct-router.png"
+  },
+  {
+    "type": "duct-unloader",
+    "label": "管道装卸器",
+    "category": "distribution",
+    "processor": false,
+    "size": {
+      "w": 1,
+      "h": 1
+    },
+    "stem": "ductunloader",
+    "assetPath": "distribution/ducts/duct-unloader.png"
+  },
+  {
+    "type": "inverted-sorter",
+    "label": "反向分类器",
+    "category": "distribution",
+    "processor": false,
+    "size": {
+      "w": 1,
+      "h": 1
+    },
+    "stem": "invertedsorter",
+    "assetPath": "distribution/inverted-sorter.png"
+  },
+  {
+    "type": "junction",
+    "label": "交叉器",
+    "category": "distribution",
+    "processor": false,
+    "size": {
+      "w": 1,
+      "h": 1
+    },
+    "stem": "junction",
+    "assetPath": "distribution/junction.png"
+  },
+  {
+    "type": "mass-driver",
+    "label": "质量驱动器",
+    "category": "distribution",
+    "processor": false,
+    "size": {
+      "w": 3,
+      "h": 3
+    },
+    "stem": "massdriver",
+    "assetPath": "distribution/mass-driver.png"
+  },
+  {
+    "type": "overflow-duct",
+    "label": "溢流管道",
+    "category": "distribution",
+    "processor": false,
+    "size": {
+      "w": 1,
+      "h": 1
+    },
+    "stem": "overflowduct",
+    "assetPath": "distribution/ducts/overflow-duct.png"
+  },
+  {
+    "type": "overflow-gate",
+    "label": "溢流门",
+    "category": "distribution",
+    "processor": false,
+    "size": {
+      "w": 1,
+      "h": 1
+    },
+    "stem": "overflowgate",
+    "assetPath": "distribution/overflow-gate.png"
+  },
+  {
+    "type": "phase-conveyor",
+    "label": "相织布传送带桥",
+    "category": "distribution",
+    "processor": false,
+    "size": {
+      "w": 1,
+      "h": 1
+    },
+    "stem": "phaseconveyor",
+    "assetPath": "distribution/phase-conveyor.png"
+  },
+  {
+    "type": "plastanium-conveyor",
+    "label": "塑钢传送带",
+    "category": "distribution",
+    "processor": false,
+    "size": {
+      "w": 1,
+      "h": 1
+    },
+    "stem": "plastaniumconveyor",
+    "assetPath": "distribution/stack-conveyors/plastanium-conveyor.png"
+  },
+  {
+    "type": "router",
+    "label": "路由器",
+    "category": "distribution",
+    "processor": false,
+    "size": {
+      "w": 1,
+      "h": 1
+    },
+    "stem": "router",
+    "assetPath": "distribution/router.png"
+  },
+  {
+    "type": "sorter",
+    "label": "分类器",
+    "category": "distribution",
+    "processor": false,
+    "size": {
+      "w": 1,
+      "h": 1
+    },
+    "stem": "sorter",
+    "assetPath": "distribution/sorter.png"
+  },
+  {
+    "type": "surge-conveyor",
+    "label": "合金传送带",
+    "category": "distribution",
+    "processor": false,
+    "size": {
+      "w": 1,
+      "h": 1
+    },
+    "stem": "surgeconveyor",
+    "assetPath": "distribution/stack-conveyors/surge-conveyor.png"
+  },
+  {
+    "type": "surge-router",
+    "label": "合金路由器",
+    "category": "distribution",
+    "processor": false,
+    "size": {
+      "w": 1,
+      "h": 1
+    },
+    "stem": "surgerouter",
+    "assetPath": "distribution/ducts/surge-router.png"
+  },
+  {
+    "type": "underflow-duct",
+    "label": "反向溢流管",
+    "category": "distribution",
+    "processor": false,
+    "size": {
+      "w": 1,
+      "h": 1
+    },
+    "stem": "underflowduct",
+    "assetPath": "distribution/ducts/underflow-duct.png"
+  },
+  {
+    "type": "underflow-gate",
+    "label": "反向溢流门",
+    "category": "distribution",
+    "processor": false,
+    "size": {
+      "w": 1,
+      "h": 1
+    },
+    "stem": "underflowgate",
+    "assetPath": "distribution/underflow-gate.png"
+  },
+  {
+    "type": "bridge-conduit",
+    "label": "导管桥",
+    "category": "liquid",
+    "processor": false,
+    "size": {
+      "w": 1,
+      "h": 1
+    },
+    "stem": "bridgeconduit",
+    "assetPath": "liquid/bridge-conduit.png"
+  },
+  {
+    "type": "impulse-pump",
+    "label": "脉冲泵",
+    "category": "liquid",
+    "processor": false,
+    "size": {
+      "w": 3,
+      "h": 3
+    },
+    "stem": "impulsepump",
+    "assetPath": "liquid/impulse-pump.png"
+  },
+  {
+    "type": "liquid-container",
+    "label": "流体容器",
+    "category": "liquid",
+    "processor": false,
+    "size": {
+      "w": 2,
+      "h": 2
+    },
+    "stem": "liquidcontainer",
+    "assetPath": "liquid/liquid-container.png"
+  },
+  {
+    "type": "liquid-junction",
+    "label": "流体交叉器",
+    "category": "liquid",
+    "processor": false,
+    "size": {
+      "w": 1,
+      "h": 1
+    },
+    "stem": "liquidjunction",
+    "assetPath": "liquid/liquid-junction.png"
+  },
+  {
+    "type": "liquid-router",
+    "label": "流体路由器",
+    "category": "liquid",
+    "processor": false,
+    "size": {
+      "w": 1,
+      "h": 1
+    },
+    "stem": "liquidrouter",
+    "assetPath": "liquid/liquid-router.png"
+  },
+  {
+    "type": "liquid-tank",
+    "label": "流体储罐",
+    "category": "liquid",
+    "processor": false,
+    "size": {
+      "w": 3,
+      "h": 3
+    },
+    "stem": "liquidtank",
+    "assetPath": "liquid/liquid-tank.png"
+  },
+  {
+    "type": "mechanical-pump",
+    "label": "机械泵",
+    "category": "liquid",
+    "processor": false,
+    "size": {
+      "w": 1,
+      "h": 1
+    },
+    "stem": "mechanicalpump",
+    "assetPath": "liquid/mechanical-pump.png"
+  },
+  {
+    "type": "phase-conduit",
+    "label": "相织布导管桥",
+    "category": "liquid",
+    "processor": false,
+    "size": {
+      "w": 1,
+      "h": 1
+    },
+    "stem": "phaseconduit",
+    "assetPath": "liquid/phase-conduit.png"
+  },
+  {
+    "type": "reinforced-bridge-conduit",
+    "label": "强化流体带桥",
+    "category": "liquid",
+    "processor": false,
+    "size": {
+      "w": 1,
+      "h": 1
+    },
+    "stem": "reinforcedbridgeconduit",
+    "assetPath": "liquid/reinforced-bridge-conduit.png"
+  },
+  {
+    "type": "reinforced-liquid-container",
+    "label": "强化流体容器",
+    "category": "liquid",
+    "processor": false,
+    "size": {
+      "w": 2,
+      "h": 2
+    },
+    "stem": "reinforcedliquidcontainer",
+    "assetPath": "liquid/reinforced-liquid-container.png"
+  },
+  {
+    "type": "reinforced-liquid-junction",
+    "label": "强化流体交叉器",
+    "category": "liquid",
+    "processor": false,
+    "size": {
+      "w": 1,
+      "h": 1
+    },
+    "stem": "reinforcedliquidjunction",
+    "assetPath": "liquid/reinforced-liquid-junction.png"
+  },
+  {
+    "type": "reinforced-liquid-router",
+    "label": "强化流体路由器",
+    "category": "liquid",
+    "processor": false,
+    "size": {
+      "w": 1,
+      "h": 1
+    },
+    "stem": "reinforcedliquidrouter",
+    "assetPath": "liquid/reinforced-liquid-router.png"
+  },
+  {
+    "type": "reinforced-liquid-tank",
+    "label": "强化流体储罐",
+    "category": "liquid",
+    "processor": false,
+    "size": {
+      "w": 3,
+      "h": 3
+    },
+    "stem": "reinforcedliquidtank",
+    "assetPath": "liquid/reinforced-liquid-tank.png"
+  },
+  {
+    "type": "reinforced-pump",
+    "label": "强化泵",
+    "category": "liquid",
+    "processor": false,
+    "size": {
+      "w": 2,
+      "h": 2
+    },
+    "stem": "reinforcedpump",
+    "assetPath": "liquid/reinforced-pump.png"
+  },
+  {
+    "type": "rotary-pump",
+    "label": "回转泵",
+    "category": "liquid",
+    "processor": false,
+    "size": {
+      "w": 2,
+      "h": 2
+    },
+    "stem": "rotarypump",
+    "assetPath": "liquid/rotary-pump.png"
+  },
+  {
+    "type": "battery",
+    "label": "电池",
+    "category": "power",
+    "processor": false,
+    "size": {
+      "w": 1,
+      "h": 1
+    },
+    "stem": "battery",
+    "assetPath": "power/battery.png"
+  },
+  {
+    "type": "battery-large",
+    "label": "大型电池",
+    "category": "power",
+    "processor": false,
+    "size": {
+      "w": 3,
+      "h": 3
+    },
+    "stem": "batterylarge",
+    "assetPath": "power/battery-large.png"
+  },
+  {
+    "type": "beam-link",
+    "label": "激光连接器",
+    "category": "power",
+    "processor": false,
+    "size": {
+      "w": 3,
+      "h": 3
+    },
+    "stem": "beamlink",
+    "assetPath": "power/beam-link.png"
+  },
+  {
+    "type": "beam-node",
+    "label": "激光节点",
+    "category": "power",
+    "processor": false,
+    "size": {
+      "w": 1,
+      "h": 1
+    },
+    "stem": "beamnode",
+    "assetPath": "power/beam-node.png"
+  },
+  {
+    "type": "beam-tower",
+    "label": "激光塔",
+    "category": "power",
+    "processor": false,
+    "size": {
+      "w": 3,
+      "h": 3
+    },
+    "stem": "beamtower",
+    "assetPath": "power/beam-tower.png"
+  },
+  {
+    "type": "chemical-combustion-chamber",
+    "label": "化学燃烧室",
+    "category": "power",
+    "processor": false,
+    "size": {
+      "w": 3,
+      "h": 3
+    },
+    "stem": "chemicalcombustionchamber",
+    "assetPath": "power/chemical-combustion-chamber.png"
+  },
+  {
+    "type": "combustion-generator",
+    "label": "火力发电机",
+    "category": "power",
+    "processor": false,
+    "size": {
+      "w": 1,
+      "h": 1
+    },
+    "stem": "combustiongenerator",
+    "assetPath": "power/combustion-generator.png"
+  },
+  {
+    "type": "differential-generator",
+    "label": "温差发电机",
+    "category": "power",
+    "processor": false,
+    "size": {
+      "w": 3,
+      "h": 3
+    },
+    "stem": "differentialgenerator",
+    "assetPath": "power/differential-generator.png"
+  },
+  {
+    "type": "diode",
+    "label": "二极管",
+    "category": "power",
+    "processor": false,
+    "size": {
+      "w": 1,
+      "h": 1
+    },
+    "stem": "diode",
+    "assetPath": "power/diode.png"
+  },
+  {
+    "type": "flux-reactor",
+    "label": "通量反应堆",
+    "category": "power",
+    "processor": false,
+    "size": {
+      "w": 5,
+      "h": 5
+    },
+    "stem": "fluxreactor",
+    "assetPath": "power/flux-reactor.png"
+  },
+  {
+    "type": "illuminator",
+    "label": "照明器",
+    "category": "power",
+    "processor": false,
+    "size": {
+      "w": 1,
+      "h": 1
+    },
+    "stem": "illuminator",
+    "assetPath": "power/illuminator.png"
+  },
+  {
+    "type": "impact-reactor",
+    "label": "冲击反应堆",
+    "category": "power",
+    "processor": false,
+    "size": {
+      "w": 4,
+      "h": 4
+    },
+    "stem": "impactreactor",
+    "assetPath": "power/impact-reactor.png"
+  },
+  {
+    "type": "neoplasia-reactor",
+    "label": "瘤变反应堆",
+    "category": "power",
+    "processor": false,
+    "size": {
+      "w": 5,
+      "h": 5
+    },
+    "stem": "neoplasiareactor",
+    "assetPath": "power/neoplasia-reactor.png"
+  },
+  {
+    "type": "power-node",
+    "label": "电力节点",
+    "category": "power",
+    "processor": false,
+    "size": {
+      "w": 1,
+      "h": 1
+    },
+    "stem": "powernode",
+    "assetPath": "power/power-node.png"
+  },
+  {
+    "type": "power-node-large",
+    "label": "大型电力节点",
+    "category": "power",
+    "processor": false,
+    "size": {
+      "w": 2,
+      "h": 2
+    },
+    "stem": "powernodelarge",
+    "assetPath": "power/power-node-large.png"
+  },
+  {
+    "type": "power-source",
+    "label": "电力源",
+    "category": "power",
+    "processor": false,
+    "size": {
+      "w": 1,
+      "h": 1
+    },
+    "stem": "powersource",
+    "assetPath": "power/power-source.png"
+  },
+  {
+    "type": "power-void",
+    "label": "电力黑洞",
+    "category": "power",
+    "processor": false,
+    "size": {
+      "w": 1,
+      "h": 1
+    },
+    "stem": "powervoid",
+    "assetPath": "power/power-void.png"
+  },
+  {
+    "type": "pyrolysis-generator",
+    "label": "热解发生器",
+    "category": "power",
+    "processor": false,
+    "size": {
+      "w": 3,
+      "h": 3
+    },
+    "stem": "pyrolysisgenerator",
+    "assetPath": "power/pyrolysis-generator.png"
+  },
+  {
+    "type": "rtg-generator",
+    "label": "RTG 发电机",
+    "category": "power",
+    "processor": false,
+    "size": {
+      "w": 2,
+      "h": 2
+    },
+    "stem": "rtggenerator",
+    "assetPath": "power/rtg-generator.png"
+  },
+  {
+    "type": "solar-panel",
+    "label": "太阳能板",
+    "category": "power",
+    "processor": false,
+    "size": {
+      "w": 1,
+      "h": 1
+    },
+    "stem": "solarpanel",
+    "assetPath": "power/solar-panel.png"
+  },
+  {
+    "type": "solar-panel-large",
+    "label": "大型太阳能板",
+    "category": "power",
+    "processor": false,
+    "size": {
+      "w": 3,
+      "h": 3
+    },
+    "stem": "solarpanellarge",
+    "assetPath": "power/solar-panel-large.png"
+  },
+  {
+    "type": "steam-generator",
+    "label": "涡轮发电机",
+    "category": "power",
+    "processor": false,
+    "size": {
+      "w": 2,
+      "h": 2
+    },
+    "stem": "steamgenerator",
+    "assetPath": "power/steam-generator.png"
+  },
+  {
+    "type": "surge-tower",
+    "label": "巨浪电力塔",
+    "category": "power",
+    "processor": false,
+    "size": {
+      "w": 2,
+      "h": 2
+    },
+    "stem": "surgetower",
+    "assetPath": "power/surge-tower.png"
+  },
+  {
+    "type": "thermal-generator",
+    "label": "热能发电机",
+    "category": "power",
+    "processor": false,
+    "size": {
+      "w": 2,
+      "h": 2
+    },
+    "stem": "thermalgenerator",
+    "assetPath": "power/thermal-generator.png"
+  },
+  {
+    "type": "thorium-reactor",
+    "label": "钍反应堆",
+    "category": "power",
+    "processor": false,
+    "size": {
+      "w": 3,
+      "h": 3
+    },
+    "stem": "thoriumreactor",
+    "assetPath": "power/thorium-reactor.png"
+  },
+  {
+    "type": "turbine-condenser",
+    "label": "涡轮冷凝器",
+    "category": "power",
+    "processor": false,
+    "size": {
+      "w": 3,
+      "h": 3
+    },
+    "stem": "turbinecondenser",
+    "assetPath": "power/turbine-condenser.png"
+  },
+  {
+    "type": "blast-drill",
+    "label": "爆破钻头",
+    "category": "drills",
+    "processor": false,
+    "size": {
+      "w": 4,
+      "h": 4
+    },
+    "stem": "blastdrill",
+    "assetPath": "drills/blast-drill.png"
+  },
+  {
+    "type": "cliff-crusher",
+    "label": "墙壁粉碎机",
+    "category": "drills",
+    "processor": false,
+    "size": {
+      "w": 2,
+      "h": 2
+    },
+    "stem": "cliffcrusher",
+    "assetPath": "drills/cliff-crusher.png"
+  },
+  {
+    "type": "eruption-drill",
+    "label": "爆裂钻头",
+    "category": "drills",
+    "processor": false,
+    "size": {
+      "w": 5,
+      "h": 5
+    },
+    "stem": "eruptiondrill",
+    "assetPath": "drills/eruption-drill.png"
+  },
+  {
+    "type": "impact-drill",
+    "label": "冲击钻头",
+    "category": "drills",
+    "processor": false,
+    "size": {
+      "w": 4,
+      "h": 4
+    },
+    "stem": "impactdrill",
+    "assetPath": "drills/impact-drill.png"
+  },
+  {
+    "type": "large-cliff-crusher",
+    "label": "高级墙壁粉碎机",
+    "category": "drills",
+    "processor": false,
+    "size": {
+      "w": 3,
+      "h": 3
+    },
+    "stem": "largecliffcrusher",
+    "assetPath": "drills/large-cliff-crusher.png"
+  },
+  {
+    "type": "large-plasma-bore",
+    "label": "大型等离子钻机",
+    "category": "drills",
+    "processor": false,
+    "size": {
+      "w": 3,
+      "h": 3
+    },
+    "stem": "largeplasmabore",
+    "assetPath": "drills/large-plasma-bore.png"
+  },
+  {
+    "type": "laser-drill",
+    "label": "激光钻头",
+    "category": "drills",
+    "processor": false,
+    "size": {
+      "w": 3,
+      "h": 3
+    },
+    "stem": "laserdrill",
+    "assetPath": "drills/laser-drill.png"
+  },
+  {
+    "type": "mechanical-drill",
+    "label": "机械钻头",
+    "category": "drills",
+    "processor": false,
+    "size": {
+      "w": 2,
+      "h": 2
+    },
+    "stem": "mechanicaldrill",
+    "assetPath": "drills/mechanical-drill.png"
+  },
+  {
+    "type": "oil-extractor",
+    "label": "石油钻井",
+    "category": "drills",
+    "processor": false,
+    "size": {
+      "w": 3,
+      "h": 3
+    },
+    "stem": "oilextractor",
+    "assetPath": "drills/oil-extractor.png"
+  },
+  {
+    "type": "plasma-bore",
+    "label": "等离子钻机",
+    "category": "drills",
+    "processor": false,
+    "size": {
+      "w": 2,
+      "h": 2
+    },
+    "stem": "plasmabore",
+    "assetPath": "drills/plasma-bore.png"
+  },
+  {
+    "type": "pneumatic-drill",
+    "label": "气动钻头",
+    "category": "drills",
+    "processor": false,
+    "size": {
+      "w": 2,
+      "h": 2
+    },
+    "stem": "pneumaticdrill",
+    "assetPath": "drills/pneumatic-drill.png"
+  },
+  {
+    "type": "water-extractor",
+    "label": "抽水机",
+    "category": "drills",
+    "processor": false,
+    "size": {
+      "w": 2,
+      "h": 2
+    },
+    "stem": "waterextractor",
+    "assetPath": "drills/water-extractor.png"
+  },
+  {
+    "type": "atmospheric-concentrator",
+    "label": "大气收集器",
+    "category": "production",
+    "processor": false,
+    "size": {
+      "w": 3,
+      "h": 3
+    },
+    "stem": "atmosphericconcentrator",
+    "assetPath": "production/atmospheric-concentrator.png"
+  },
+  {
+    "type": "blast-mixer",
+    "label": "爆炸物混合器",
+    "category": "production",
+    "processor": false,
+    "size": {
+      "w": 2,
+      "h": 2
+    },
+    "stem": "blastmixer",
+    "assetPath": "production/blast-mixer.png"
+  },
+  {
+    "type": "carbide-crucible",
+    "label": "碳化物坩埚",
+    "category": "production",
+    "processor": false,
+    "size": {
+      "w": 3,
+      "h": 3
+    },
+    "stem": "carbidecrucible",
+    "assetPath": "production/carbide-crucible.png"
+  },
+  {
+    "type": "coal-centrifuge",
+    "label": "煤炭离心机",
+    "category": "production",
+    "processor": false,
+    "size": {
+      "w": 2,
+      "h": 2
+    },
+    "stem": "coalcentrifuge",
+    "assetPath": "production/coal-centrifuge.png"
+  },
+  {
+    "type": "cryofluid-mixer",
+    "label": "冷冻液混合器",
+    "category": "production",
+    "processor": false,
+    "size": {
+      "w": 2,
+      "h": 2
+    },
+    "stem": "cryofluidmixer",
+    "assetPath": "production/cryofluid-mixer.png"
+  },
+  {
+    "type": "cultivator",
+    "label": "培养机",
+    "category": "production",
+    "processor": false,
+    "size": {
+      "w": 2,
+      "h": 2
+    },
+    "stem": "cultivator",
+    "assetPath": "production/cultivator.png"
+  },
+  {
+    "type": "cyanogen-synthesizer",
+    "label": "氰合成机",
+    "category": "production",
+    "processor": false,
+    "size": {
+      "w": 3,
+      "h": 3
+    },
+    "stem": "cyanogensynthesizer",
+    "assetPath": "production/cyanogen-synthesizer.png"
+  },
+  {
+    "type": "disassembler",
+    "label": "解离机",
+    "category": "production",
+    "processor": false,
+    "size": {
+      "w": 3,
+      "h": 3
+    },
+    "stem": "disassembler",
+    "assetPath": "production/disassembler.png"
+  },
+  {
+    "type": "electric-heater",
+    "label": "电制热机",
+    "category": "production",
+    "processor": false,
+    "size": {
+      "w": 2,
+      "h": 2
+    },
+    "stem": "electricheater",
+    "assetPath": "production/electric-heater.png"
+  },
+  {
+    "type": "electrolyzer",
+    "label": "电解机",
+    "category": "production",
+    "processor": false,
+    "size": {
+      "w": 3,
+      "h": 3
+    },
+    "stem": "electrolyzer",
+    "assetPath": "production/electrolyzer.png"
+  },
+  {
+    "type": "graphite-press",
+    "label": "石墨压缩机",
+    "category": "production",
+    "processor": false,
+    "size": {
+      "w": 2,
+      "h": 2
+    },
+    "stem": "graphitepress",
+    "assetPath": "production/graphite-press.png"
+  },
+  {
+    "type": "heat-reactor",
+    "label": "热量反应堆",
+    "category": "production",
+    "processor": false,
+    "size": {
+      "w": 3,
+      "h": 3
+    },
+    "stem": "heatreactor",
+    "assetPath": "production/heat-reactor.png"
+  },
+  {
+    "type": "heat-redirector",
+    "label": "热量传输机",
+    "category": "production",
+    "processor": false,
+    "size": {
+      "w": 3,
+      "h": 3
+    },
+    "stem": "heatredirector",
+    "assetPath": "production/heat-redirector.png"
+  },
+  {
+    "type": "heat-router",
+    "label": "热量路由器",
+    "category": "production",
+    "processor": false,
+    "size": {
+      "w": 3,
+      "h": 3
+    },
+    "stem": "heatrouter",
+    "assetPath": "production/heat-router.png"
+  },
+  {
+    "type": "incinerator",
+    "label": "焚化炉",
+    "category": "production",
+    "processor": false,
+    "size": {
+      "w": 1,
+      "h": 1
+    },
+    "stem": "incinerator",
+    "assetPath": "production/incinerator.png"
+  },
+  {
+    "type": "kiln",
+    "label": "窑炉",
+    "category": "production",
+    "processor": false,
+    "size": {
+      "w": 2,
+      "h": 2
+    },
+    "stem": "kiln",
+    "assetPath": "production/kiln.png"
+  },
+  {
+    "type": "melter",
+    "label": "熔炉",
+    "category": "production",
+    "processor": false,
+    "size": {
+      "w": 1,
+      "h": 1
+    },
+    "stem": "melter",
+    "assetPath": "production/melter.png"
+  },
+  {
+    "type": "multi-press",
+    "label": "多重压缩机",
+    "category": "production",
+    "processor": false,
+    "size": {
+      "w": 3,
+      "h": 3
+    },
+    "stem": "multipress",
+    "assetPath": "production/multi-press.png"
+  },
+  {
+    "type": "oxidation-chamber",
+    "label": "氧化室",
+    "category": "production",
+    "processor": false,
+    "size": {
+      "w": 3,
+      "h": 3
+    },
+    "stem": "oxidationchamber",
+    "assetPath": "production/oxidation-chamber.png"
+  },
+  {
+    "type": "phase-heater",
+    "label": "相织制热机",
+    "category": "production",
+    "processor": false,
+    "size": {
+      "w": 2,
+      "h": 2
+    },
+    "stem": "phaseheater",
+    "assetPath": "production/phase-heater.png"
+  },
+  {
+    "type": "phase-synthesizer",
+    "label": "相织布合成机",
+    "category": "production",
+    "processor": false,
+    "size": {
+      "w": 3,
+      "h": 3
+    },
+    "stem": "phasesynthesizer",
+    "assetPath": "production/phase-synthesizer.png"
+  },
+  {
+    "type": "phase-weaver",
+    "label": "相织布编织器",
+    "category": "production",
+    "processor": false,
+    "size": {
+      "w": 2,
+      "h": 2
+    },
+    "stem": "phaseweaver",
+    "assetPath": "production/phase-weaver.png"
+  },
+  {
+    "type": "plastanium-compressor",
+    "label": "塑钢压缩机",
+    "category": "production",
+    "processor": false,
+    "size": {
+      "w": 2,
+      "h": 2
+    },
+    "stem": "plastaniumcompressor",
+    "assetPath": "production/plastanium-compressor.png"
+  },
+  {
+    "type": "pulverizer",
+    "label": "粉碎机",
+    "category": "production",
+    "processor": false,
+    "size": {
+      "w": 1,
+      "h": 1
+    },
+    "stem": "pulverizer",
+    "assetPath": "production/pulverizer.png"
+  },
+  {
+    "type": "pyratite-mixer",
+    "label": "硫化物混合器",
+    "category": "production",
+    "processor": false,
+    "size": {
+      "w": 2,
+      "h": 2
+    },
+    "stem": "pyratitemixer",
+    "assetPath": "production/pyratite-mixer.png"
+  },
+  {
+    "type": "separator",
+    "label": "分离机",
+    "category": "production",
+    "processor": false,
+    "size": {
+      "w": 2,
+      "h": 2
+    },
+    "stem": "separator",
+    "assetPath": "production/separator.png"
+  },
+  {
+    "type": "silicon-arc-furnace",
+    "label": "电弧硅炉",
+    "category": "production",
+    "processor": false,
+    "size": {
+      "w": 3,
+      "h": 3
+    },
+    "stem": "siliconarcfurnace",
+    "assetPath": "production/silicon-arc-furnace.png"
+  },
+  {
+    "type": "silicon-crucible",
+    "label": "热能坩埚",
+    "category": "production",
+    "processor": false,
+    "size": {
+      "w": 3,
+      "h": 3
+    },
+    "stem": "siliconcrucible",
+    "assetPath": "production/silicon-crucible.png"
+  },
+  {
+    "type": "silicon-smelter",
+    "label": "硅冶炼厂",
+    "category": "production",
+    "processor": false,
+    "size": {
+      "w": 2,
+      "h": 2
+    },
+    "stem": "siliconsmelter",
+    "assetPath": "production/silicon-smelter.png"
+  },
+  {
+    "type": "slag-centrifuge",
+    "label": "矿渣离心机",
+    "category": "production",
+    "processor": false,
+    "size": {
+      "w": 3,
+      "h": 3
+    },
+    "stem": "slagcentrifuge",
+    "assetPath": "production/slag-centrifuge.png"
+  },
+  {
+    "type": "slag-heater",
+    "label": "矿渣制热机",
+    "category": "production",
+    "processor": false,
+    "size": {
+      "w": 3,
+      "h": 3
+    },
+    "stem": "slagheater",
+    "assetPath": "production/slag-heater.png"
+  },
+  {
+    "type": "slag-incinerator",
+    "label": "矿渣焚化炉",
+    "category": "production",
+    "processor": false,
+    "size": {
+      "w": 1,
+      "h": 1
+    },
+    "stem": "slagincinerator",
+    "assetPath": "production/slag-incinerator.png"
+  },
+  {
+    "type": "small-heat-redirector",
+    "label": "小型热量传输机",
+    "category": "production",
+    "processor": false,
+    "size": {
+      "w": 2,
+      "h": 2
+    },
+    "stem": "smallheatredirector",
+    "assetPath": "production/small-heat-redirector.png"
+  },
+  {
+    "type": "spore-press",
+    "label": "孢子压缩机",
+    "category": "production",
+    "processor": false,
+    "size": {
+      "w": 2,
+      "h": 2
+    },
+    "stem": "sporepress",
+    "assetPath": "production/spore-press.png"
+  },
+  {
+    "type": "surge-crucible",
+    "label": "合金坩埚",
+    "category": "production",
+    "processor": false,
+    "size": {
+      "w": 3,
+      "h": 3
+    },
+    "stem": "surgecrucible",
+    "assetPath": "production/surge-crucible.png"
+  },
+  {
+    "type": "surge-smelter",
+    "label": "合金冶炼厂",
+    "category": "production",
+    "processor": false,
+    "size": {
+      "w": 3,
+      "h": 3
+    },
+    "stem": "surgesmelter",
+    "assetPath": "production/surge-smelter.png"
+  },
+  {
+    "type": "vent-condenser",
+    "label": "排气冷凝器",
+    "category": "production",
+    "processor": false,
+    "size": {
+      "w": 3,
+      "h": 3
+    },
+    "stem": "ventcondenser",
+    "assetPath": "production/vent-condenser.png"
+  },
+  {
+    "type": "container",
+    "label": "容器",
+    "category": "storage",
+    "processor": false,
+    "size": {
+      "w": 2,
+      "h": 2
+    },
+    "stem": "container",
+    "assetPath": "storage/container.png"
+  },
+  {
+    "type": "core-acropolis",
+    "label": "卫城核心",
+    "category": "storage",
+    "processor": false,
+    "size": {
+      "w": 6,
+      "h": 6
+    },
+    "stem": "coreacropolis",
+    "assetPath": "storage/core-acropolis.png"
+  },
+  {
+    "type": "core-bastion",
+    "label": "城堡核心",
+    "category": "storage",
+    "processor": false,
+    "size": {
+      "w": 4,
+      "h": 4
+    },
+    "stem": "corebastion",
+    "assetPath": "storage/core-bastion.png"
+  },
+  {
+    "type": "core-citadel",
+    "label": "堡垒核心",
+    "category": "storage",
+    "processor": false,
+    "size": {
+      "w": 5,
+      "h": 5
+    },
+    "stem": "corecitadel",
+    "assetPath": "storage/core-citadel.png"
+  },
+  {
+    "type": "core-foundation",
+    "label": "次代核心",
+    "category": "storage",
+    "processor": false,
+    "size": {
+      "w": 4,
+      "h": 4
+    },
+    "stem": "corefoundation",
+    "assetPath": "storage/core-foundation.png"
+  },
+  {
+    "type": "core-nucleus",
+    "label": "终代核心",
+    "category": "storage",
+    "processor": false,
+    "size": {
+      "w": 5,
+      "h": 5
+    },
+    "stem": "corenucleus",
+    "assetPath": "storage/core-nucleus.png"
+  },
+  {
+    "type": "core-shard",
+    "label": "初代核心",
+    "category": "storage",
+    "processor": false,
+    "size": {
+      "w": 3,
+      "h": 3
+    },
+    "stem": "coreshard",
+    "assetPath": "storage/core-shard.png"
+  },
+  {
+    "type": "reinforced-container",
+    "label": "强化容器",
+    "category": "storage",
+    "processor": false,
+    "size": {
+      "w": 2,
+      "h": 2
+    },
+    "stem": "reinforcedcontainer",
+    "assetPath": "storage/reinforced-container.png"
+  },
+  {
+    "type": "reinforced-vault",
+    "label": "强化仓库",
+    "category": "storage",
+    "processor": false,
+    "size": {
+      "w": 3,
+      "h": 3
+    },
+    "stem": "reinforcedvault",
+    "assetPath": "storage/reinforced-vault.png"
+  },
+  {
+    "type": "unloader",
+    "label": "装卸器",
+    "category": "storage",
+    "processor": false,
+    "size": {
+      "w": 1,
+      "h": 1
+    },
+    "stem": "unloader",
+    "assetPath": "storage/unloader.png"
+  },
+  {
+    "type": "vault",
+    "label": "仓库",
+    "category": "storage",
+    "processor": false,
+    "size": {
+      "w": 3,
+      "h": 3
+    },
+    "stem": "vault",
+    "assetPath": "storage/vault.png"
+  },
+  {
+    "type": "deconstructor",
+    "label": "大型解构器",
+    "category": "payload",
+    "processor": false,
+    "size": {
+      "w": 5,
+      "h": 5
+    },
+    "stem": "deconstructor",
+    "assetPath": "payload/deconstructor.png"
+  },
+  {
+    "type": "large-constructor",
+    "label": "大型构筑器",
+    "category": "payload",
+    "processor": false,
+    "size": {
+      "w": 5,
+      "h": 5
+    },
+    "stem": "largeconstructor",
+    "assetPath": "payload/large-constructor.png"
+  },
+  {
+    "type": "large-payload-mass-driver",
+    "label": "大型载荷质量驱动器",
+    "category": "payload",
+    "processor": false,
+    "size": {
+      "w": 5,
+      "h": 5
+    },
+    "stem": "largepayloadmassdriver",
+    "assetPath": "payload/large-payload-mass-driver.png"
+  },
+  {
+    "type": "payload-conveyor",
+    "label": "载荷传送带",
+    "category": "payload",
+    "processor": false,
+    "size": {
+      "w": 3,
+      "h": 3
+    },
+    "stem": "payloadconveyor",
+    "assetPath": "payload/payload-conveyor.png"
+  },
+  {
+    "type": "payload-loader",
+    "label": "载荷装载器",
+    "category": "payload",
+    "processor": false,
+    "size": {
+      "w": 3,
+      "h": 3
+    },
+    "stem": "payloadloader",
+    "assetPath": "payload/payload-loader.png"
+  },
+  {
+    "type": "payload-mass-driver",
+    "label": "载荷质量驱动器",
+    "category": "payload",
+    "processor": false,
+    "size": {
+      "w": 3,
+      "h": 3
+    },
+    "stem": "payloadmassdriver",
+    "assetPath": "payload/payload-mass-driver.png"
+  },
+  {
+    "type": "payload-router",
+    "label": "载荷路由器",
+    "category": "payload",
+    "processor": false,
+    "size": {
+      "w": 3,
+      "h": 3
+    },
+    "stem": "payloadrouter",
+    "assetPath": "payload/payload-router.png"
+  },
+  {
+    "type": "payload-source",
+    "label": "载荷源",
+    "category": "payload",
+    "processor": false,
+    "size": {
+      "w": 5,
+      "h": 5
+    },
+    "stem": "payloadsource",
+    "assetPath": "payload/payload-source.png"
+  },
+  {
+    "type": "payload-unloader",
+    "label": "载荷卸载器",
+    "category": "payload",
+    "processor": false,
+    "size": {
+      "w": 3,
+      "h": 3
+    },
+    "stem": "payloadunloader",
+    "assetPath": "payload/payload-unloader.png"
+  },
+  {
+    "type": "payload-void",
+    "label": "载荷黑洞",
+    "category": "payload",
+    "processor": false,
+    "size": {
+      "w": 5,
+      "h": 5
+    },
+    "stem": "payloadvoid",
+    "assetPath": "payload/payload-void.png"
+  },
+  {
+    "type": "reinforced-payload-conveyor",
+    "label": "强化载荷传送带",
+    "category": "payload",
+    "processor": false,
+    "size": {
+      "w": 3,
+      "h": 3
+    },
+    "stem": "reinforcedpayloadconveyor",
+    "assetPath": "payload/reinforced-payload-conveyor.png"
+  },
+  {
+    "type": "reinforced-payload-router",
+    "label": "强化载荷路由器",
+    "category": "payload",
+    "processor": false,
+    "size": {
+      "w": 3,
+      "h": 3
+    },
+    "stem": "reinforcedpayloadrouter",
+    "assetPath": "payload/reinforced-payload-router.png"
+  },
+  {
+    "type": "small-deconstructor",
+    "label": "解构器",
+    "category": "payload",
+    "processor": false,
+    "size": {
+      "w": 3,
+      "h": 3
+    },
+    "stem": "smalldeconstructor",
+    "assetPath": "payload/small-deconstructor.png"
+  },
+  {
+    "type": "build-tower",
+    "label": "建造塔",
+    "category": "defense",
+    "processor": false,
+    "size": {
+      "w": 3,
+      "h": 3
+    },
+    "stem": "buildtower",
+    "assetPath": "defense/build-tower.png"
+  },
+  {
+    "type": "force-projector",
+    "label": "力墙投影",
+    "category": "defense",
+    "processor": false,
+    "size": {
+      "w": 3,
+      "h": 3
+    },
+    "stem": "forceprojector",
+    "assetPath": "defense/force-projector.png"
+  },
+  {
+    "type": "large-shield-projector",
+    "label": "大型护盾投影器",
+    "category": "defense",
+    "processor": false,
+    "size": {
+      "w": 4,
+      "h": 4
+    },
+    "stem": "largeshieldprojector",
+    "assetPath": "defense/large-shield-projector.png"
+  },
+  {
+    "type": "mend-projector",
+    "label": "修理投影",
+    "category": "defense",
+    "processor": false,
+    "size": {
+      "w": 2,
+      "h": 2
+    },
+    "stem": "mendprojector",
+    "assetPath": "defense/mend-projector.png"
+  },
+  {
+    "type": "mender",
+    "label": "修理器",
+    "category": "defense",
+    "processor": false,
+    "size": {
+      "w": 1,
+      "h": 1
+    },
+    "stem": "mender",
+    "assetPath": "defense/mender.png"
+  },
+  {
+    "type": "overdrive-dome",
+    "label": "超速穹顶",
+    "category": "defense",
+    "processor": false,
+    "size": {
+      "w": 3,
+      "h": 3
+    },
+    "stem": "overdrivedome",
+    "assetPath": "defense/overdrive-dome.png"
+  },
+  {
+    "type": "overdrive-projector",
+    "label": "超速投影",
+    "category": "defense",
+    "processor": false,
+    "size": {
+      "w": 2,
+      "h": 2
+    },
+    "stem": "overdriveprojector",
+    "assetPath": "defense/overdrive-projector.png"
+  },
+  {
+    "type": "parallax",
+    "label": "差扰",
+    "category": "defense",
+    "processor": false,
+    "size": {
+      "w": 2,
+      "h": 2
+    },
+    "stem": "parallax",
+    "assetPath": "defense/parallax.png"
+  },
+  {
+    "type": "radar",
+    "label": "雷达",
+    "category": "defense",
+    "processor": false,
+    "size": {
+      "w": 1,
+      "h": 1
+    },
+    "stem": "radar",
+    "assetPath": "defense/radar.png"
+  },
+  {
+    "type": "regen-projector",
+    "label": "再生投影器",
+    "category": "defense",
+    "processor": false,
+    "size": {
+      "w": 3,
+      "h": 3
+    },
+    "stem": "regenprojector",
+    "assetPath": "defense/regen-projector.png"
+  },
+  {
+    "type": "segment",
+    "label": "裂解",
+    "category": "defense",
+    "processor": false,
+    "size": {
+      "w": 2,
+      "h": 2
+    },
+    "stem": "segment",
+    "assetPath": "defense/segment.png"
+  },
+  {
+    "type": "shield-projector",
+    "label": "护盾投影器",
+    "category": "defense",
+    "processor": false,
+    "size": {
+      "w": 3,
+      "h": 3
+    },
+    "stem": "shieldprojector",
+    "assetPath": "defense/shield-projector.png"
+  },
+  {
+    "type": "shock-mine",
+    "label": "脉冲地雷",
+    "category": "defense",
+    "processor": false,
+    "size": {
+      "w": 1,
+      "h": 1
+    },
+    "stem": "shockmine",
+    "assetPath": "defense/shock-mine.png"
+  },
+  {
+    "type": "shockwave-tower",
+    "label": "震爆塔",
+    "category": "defense",
+    "processor": false,
+    "size": {
+      "w": 3,
+      "h": 3
+    },
+    "stem": "shockwavetower",
+    "assetPath": "defense/shockwave-tower.png"
+  },
+  {
+    "type": "afflict",
+    "label": "劫难",
+    "category": "turrets",
+    "processor": false,
+    "size": {
+      "w": 4,
+      "h": 4
+    },
+    "stem": "afflict",
+    "assetPath": "turrets/afflict/afflict.png"
+  },
+  {
+    "type": "arc",
+    "label": "电弧",
+    "category": "turrets",
+    "processor": false,
+    "size": {
+      "w": 1,
+      "h": 1
+    },
+    "stem": "arc",
+    "assetPath": "turrets/arc.png"
+  },
+  {
+    "type": "breach",
+    "label": "撕裂",
+    "category": "turrets",
+    "processor": false,
+    "size": {
+      "w": 3,
+      "h": 3
+    },
+    "stem": "breach",
+    "assetPath": "turrets/breach.png"
+  },
+  {
+    "type": "cyclone",
+    "label": "气旋",
+    "category": "turrets",
+    "processor": false,
+    "size": {
+      "w": 3,
+      "h": 3
+    },
+    "stem": "cyclone",
+    "assetPath": "turrets/cyclone/cyclone.png"
+  },
+  {
+    "type": "diffuse",
+    "label": "扩散",
+    "category": "turrets",
+    "processor": false,
+    "size": {
+      "w": 3,
+      "h": 3
+    },
+    "stem": "diffuse",
+    "assetPath": "turrets/diffuse/diffuse.png"
+  },
+  {
+    "type": "disperse",
+    "label": "驱离",
+    "category": "turrets",
+    "processor": false,
+    "size": {
+      "w": 4,
+      "h": 4
+    },
+    "stem": "disperse",
+    "assetPath": "turrets/disperse/disperse-preview.png"
+  },
+  {
+    "type": "duo",
+    "label": "双管",
+    "category": "turrets",
+    "processor": false,
+    "size": {
+      "w": 1,
+      "h": 1
+    },
+    "stem": "duo",
+    "assetPath": "turrets/duo/duo.png"
+  },
+  {
+    "type": "foreshadow",
+    "label": "厄兆",
+    "category": "turrets",
+    "processor": false,
+    "size": {
+      "w": 4,
+      "h": 4
+    },
+    "stem": "foreshadow",
+    "assetPath": "turrets/foreshadow.png"
+  },
+  {
+    "type": "fuse",
+    "label": "雷光",
+    "category": "turrets",
+    "processor": false,
+    "size": {
+      "w": 3,
+      "h": 3
+    },
+    "stem": "fuse",
+    "assetPath": "turrets/fuse.png"
+  },
+  {
+    "type": "hail",
+    "label": "冰雹",
+    "category": "turrets",
+    "processor": false,
+    "size": {
+      "w": 1,
+      "h": 1
+    },
+    "stem": "hail",
+    "assetPath": "turrets/hail.png"
+  },
+  {
+    "type": "lancer",
+    "label": "蓝瑟",
+    "category": "turrets",
+    "processor": false,
+    "size": {
+      "w": 2,
+      "h": 2
+    },
+    "stem": "lancer",
+    "assetPath": "turrets/lancer.png"
+  },
+  {
+    "type": "lustre",
+    "label": "光辉",
+    "category": "turrets",
+    "processor": false,
+    "size": {
+      "w": 4,
+      "h": 4
+    },
+    "stem": "lustre",
+    "assetPath": "turrets/lustre/lustre-preview.png"
+  },
+  {
+    "type": "malign",
+    "label": "魔灵",
+    "category": "turrets",
+    "processor": false,
+    "size": {
+      "w": 5,
+      "h": 5
+    },
+    "stem": "malign",
+    "assetPath": "turrets/malign/malign-preview.png"
+  },
+  {
+    "type": "meltdown",
+    "label": "熔毁",
+    "category": "turrets",
+    "processor": false,
+    "size": {
+      "w": 4,
+      "h": 4
+    },
+    "stem": "meltdown",
+    "assetPath": "turrets/meltdown.png"
+  },
+  {
+    "type": "ripple",
+    "label": "浪涌",
+    "category": "turrets",
+    "processor": false,
+    "size": {
+      "w": 3,
+      "h": 3
+    },
+    "stem": "ripple",
+    "assetPath": "turrets/ripple.png"
+  },
+  {
+    "type": "salvo",
+    "label": "齐射",
+    "category": "turrets",
+    "processor": false,
+    "size": {
+      "w": 2,
+      "h": 2
+    },
+    "stem": "salvo",
+    "assetPath": "turrets/salvo/salvo-preview.png"
+  },
+  {
+    "type": "scathe",
+    "label": "创伤",
+    "category": "turrets",
+    "processor": false,
+    "size": {
+      "w": 4,
+      "h": 4
+    },
+    "stem": "scathe",
+    "assetPath": "turrets/scathe/scathe-preview.png"
+  },
+  {
+    "type": "scatter",
+    "label": "分裂",
+    "category": "turrets",
+    "processor": false,
+    "size": {
+      "w": 2,
+      "h": 2
+    },
+    "stem": "scatter",
+    "assetPath": "turrets/scatter/scatter.png"
+  },
+  {
+    "type": "scorch",
+    "label": "火焰",
+    "category": "turrets",
+    "processor": false,
+    "size": {
+      "w": 1,
+      "h": 1
+    },
+    "stem": "scorch",
+    "assetPath": "turrets/scorch.png"
+  },
+  {
+    "type": "smite",
+    "label": "天谴",
+    "category": "turrets",
+    "processor": false,
+    "size": {
+      "w": 5,
+      "h": 5
+    },
+    "stem": "smite",
+    "assetPath": "turrets/smite/smite-preview.png"
+  },
+  {
+    "type": "spectre",
+    "label": "幽灵",
+    "category": "turrets",
+    "processor": false,
+    "size": {
+      "w": 4,
+      "h": 4
+    },
+    "stem": "spectre",
+    "assetPath": "turrets/spectre.png"
+  },
+  {
+    "type": "sublimate",
+    "label": "升华",
+    "category": "turrets",
+    "processor": false,
+    "size": {
+      "w": 3,
+      "h": 3
+    },
+    "stem": "sublimate",
+    "assetPath": "turrets/sublimate/sublimate.png"
+  },
+  {
+    "type": "swarmer",
+    "label": "蜂群",
+    "category": "turrets",
+    "processor": false,
+    "size": {
+      "w": 2,
+      "h": 2
+    },
+    "stem": "swarmer",
+    "assetPath": "turrets/swarmer.png"
+  },
+  {
+    "type": "titan",
+    "label": "泰坦",
+    "category": "turrets",
+    "processor": false,
+    "size": {
+      "w": 4,
+      "h": 4
+    },
+    "stem": "titan",
+    "assetPath": "turrets/titan/titan.png"
+  },
+  {
+    "type": "tsunami",
+    "label": "海啸",
+    "category": "turrets",
+    "processor": false,
+    "size": {
+      "w": 3,
+      "h": 3
+    },
+    "stem": "tsunami",
+    "assetPath": "turrets/tsunami.png"
+  },
+  {
+    "type": "wave",
+    "label": "波浪",
+    "category": "turrets",
+    "processor": false,
+    "size": {
+      "w": 2,
+      "h": 2
+    },
+    "stem": "wave",
+    "assetPath": "turrets/wave.png"
+  },
+  {
+    "type": "beryllium-wall",
+    "label": "铍墙",
+    "category": "walls",
+    "processor": false,
+    "size": {
+      "w": 1,
+      "h": 1
+    },
+    "stem": "berylliumwall",
+    "assetPath": "walls/beryllium-wall.png"
+  },
+  {
+    "type": "beryllium-wall-large",
+    "label": "大型铍墙",
+    "category": "walls",
+    "processor": false,
+    "size": {
+      "w": 2,
+      "h": 2
+    },
+    "stem": "berylliumwalllarge",
+    "assetPath": "walls/beryllium-wall-large.png"
+  },
+  {
+    "type": "blast-door",
+    "label": "防爆闸门",
+    "category": "walls",
+    "processor": false,
+    "size": {
+      "w": 2,
+      "h": 2
+    },
+    "stem": "blastdoor",
+    "assetPath": "walls/blast-door.png"
+  },
+  {
+    "type": "carbide-wall",
+    "label": "碳化物墙",
+    "category": "walls",
+    "processor": false,
+    "size": {
+      "w": 1,
+      "h": 1
+    },
+    "stem": "carbidewall",
+    "assetPath": "walls/carbide-wall.png"
+  },
+  {
+    "type": "carbide-wall-large",
+    "label": "大型碳化物墙",
+    "category": "walls",
+    "processor": false,
+    "size": {
+      "w": 2,
+      "h": 2
+    },
+    "stem": "carbidewalllarge",
+    "assetPath": "walls/carbide-wall-large.png"
+  },
+  {
+    "type": "copper-wall",
+    "label": "铜墙",
+    "category": "walls",
+    "processor": false,
+    "size": {
+      "w": 1,
+      "h": 1
+    },
+    "stem": "copperwall",
+    "assetPath": "walls/copper-wall.png"
+  },
+  {
+    "type": "copper-wall-large",
+    "label": "大型铜墙",
+    "category": "walls",
+    "processor": false,
+    "size": {
+      "w": 2,
+      "h": 2
+    },
+    "stem": "copperwalllarge",
+    "assetPath": "walls/copper-wall-large.png"
+  },
+  {
+    "type": "door",
+    "label": "门",
+    "category": "walls",
+    "processor": false,
+    "size": {
+      "w": 1,
+      "h": 1
+    },
+    "stem": "door",
+    "assetPath": "walls/door.png"
+  },
+  {
+    "type": "door-large",
+    "label": "大门",
+    "category": "walls",
+    "processor": false,
+    "size": {
+      "w": 2,
+      "h": 2
+    },
+    "stem": "doorlarge",
+    "assetPath": "walls/door-large.png"
+  },
+  {
+    "type": "phase-wall",
+    "label": "相织布墙",
+    "category": "walls",
+    "processor": false,
+    "size": {
+      "w": 1,
+      "h": 1
+    },
+    "stem": "phasewall",
+    "assetPath": "walls/phase-wall.png"
+  },
+  {
+    "type": "phase-wall-large",
+    "label": "大型相织布墙",
+    "category": "walls",
+    "processor": false,
+    "size": {
+      "w": 2,
+      "h": 2
+    },
+    "stem": "phasewalllarge",
+    "assetPath": "walls/phase-wall-large.png"
+  },
+  {
+    "type": "plastanium-wall",
+    "label": "塑钢墙",
+    "category": "walls",
+    "processor": false,
+    "size": {
+      "w": 1,
+      "h": 1
+    },
+    "stem": "plastaniumwall",
+    "assetPath": "walls/plastanium-wall.png"
+  },
+  {
+    "type": "plastanium-wall-large",
+    "label": "大型塑钢墙",
+    "category": "walls",
+    "processor": false,
+    "size": {
+      "w": 2,
+      "h": 2
+    },
+    "stem": "plastaniumwalllarge",
+    "assetPath": "walls/plastanium-wall-large.png"
+  },
+  {
+    "type": "reinforced-surge-wall",
+    "label": "强化合金墙",
+    "category": "walls",
+    "processor": false,
+    "size": {
+      "w": 1,
+      "h": 1
+    },
+    "stem": "reinforcedsurgewall",
+    "assetPath": "walls/reinforced-surge-wall.png"
+  },
+  {
+    "type": "reinforced-surge-wall-large",
+    "label": "大型强化合金墙",
+    "category": "walls",
+    "processor": false,
+    "size": {
+      "w": 2,
+      "h": 2
+    },
+    "stem": "reinforcedsurgewalllarge",
+    "assetPath": "walls/reinforced-surge-wall-large.png"
+  },
+  {
+    "type": "scrap-wall-gigantic",
+    "label": "超巨型废墙",
+    "category": "walls",
+    "processor": false,
+    "size": {
+      "w": 4,
+      "h": 4
+    },
+    "stem": "scrapwallgigantic",
+    "assetPath": "walls/scrap-wall-gigantic.png"
+  },
+  {
+    "type": "shielded-wall",
+    "label": "盾墙",
+    "category": "walls",
+    "processor": false,
+    "size": {
+      "w": 2,
+      "h": 2
+    },
+    "stem": "shieldedwall",
+    "assetPath": "walls/shielded-wall.png"
+  },
+  {
+    "type": "surge-wall",
+    "label": "合金墙",
+    "category": "walls",
+    "processor": false,
+    "size": {
+      "w": 1,
+      "h": 1
+    },
+    "stem": "surgewall",
+    "assetPath": "walls/surge-wall.png"
+  },
+  {
+    "type": "surge-wall-large",
+    "label": "大型合金墙",
+    "category": "walls",
+    "processor": false,
+    "size": {
+      "w": 2,
+      "h": 2
+    },
+    "stem": "surgewalllarge",
+    "assetPath": "walls/surge-wall-large.png"
+  },
+  {
+    "type": "thorium-wall",
+    "label": "钍墙",
+    "category": "walls",
+    "processor": false,
+    "size": {
+      "w": 1,
+      "h": 1
+    },
+    "stem": "thoriumwall",
+    "assetPath": "walls/thorium-wall.png"
+  },
+  {
+    "type": "thorium-wall-large",
+    "label": "大型钍墙",
+    "category": "walls",
+    "processor": false,
+    "size": {
+      "w": 2,
+      "h": 2
+    },
+    "stem": "thoriumwalllarge",
+    "assetPath": "walls/thorium-wall-large.png"
+  },
+  {
+    "type": "thruster",
+    "label": "推进器残骸",
+    "category": "walls",
+    "processor": false,
+    "size": {
+      "w": 4,
+      "h": 4
+    },
+    "stem": "thruster",
+    "assetPath": "walls/thruster.png"
+  },
+  {
+    "type": "titanium-wall",
+    "label": "钛墙",
+    "category": "walls",
+    "processor": false,
+    "size": {
+      "w": 1,
+      "h": 1
+    },
+    "stem": "titaniumwall",
+    "assetPath": "walls/titanium-wall.png"
+  },
+  {
+    "type": "titanium-wall-large",
+    "label": "大型钛墙",
+    "category": "walls",
+    "processor": false,
+    "size": {
+      "w": 2,
+      "h": 2
+    },
+    "stem": "titaniumwalllarge",
+    "assetPath": "walls/titanium-wall-large.png"
+  },
+  {
+    "type": "tungsten-wall",
+    "label": "钨墙",
+    "category": "walls",
+    "processor": false,
+    "size": {
+      "w": 1,
+      "h": 1
+    },
+    "stem": "tungstenwall",
+    "assetPath": "walls/tungsten-wall.png"
+  },
+  {
+    "type": "tungsten-wall-large",
+    "label": "大型钨墙",
+    "category": "walls",
+    "processor": false,
+    "size": {
+      "w": 2,
+      "h": 2
+    },
+    "stem": "tungstenwalllarge",
+    "assetPath": "walls/tungsten-wall-large.png"
+  },
+  {
+    "type": "additive-reconstructor",
+    "label": "数增级单位重构工厂",
+    "category": "units",
+    "processor": false,
+    "size": {
+      "w": 3,
+      "h": 3
+    },
+    "stem": "additivereconstructor",
+    "assetPath": "units/additive-reconstructor.png"
+  },
+  {
+    "type": "air-factory",
+    "label": "空军工厂",
+    "category": "units",
+    "processor": false,
+    "size": {
+      "w": 3,
+      "h": 3
+    },
+    "stem": "airfactory",
+    "assetPath": "units/air-factory.png"
+  },
+  {
+    "type": "basic-assembler-module",
+    "label": "基本装配厂模块",
+    "category": "units",
+    "processor": false,
+    "size": {
+      "w": 5,
+      "h": 5
+    },
+    "stem": "basicassemblermodule",
+    "assetPath": "units/basic-assembler-module.png"
+  },
+  {
+    "type": "exponential-reconstructor",
+    "label": "多幂级单位重构工厂",
+    "category": "units",
+    "processor": false,
+    "size": {
+      "w": 7,
+      "h": 7
+    },
+    "stem": "exponentialreconstructor",
+    "assetPath": "units/exponential-reconstructor.png"
+  },
+  {
+    "type": "ground-factory",
+    "label": "陆军工厂",
+    "category": "units",
+    "processor": false,
+    "size": {
+      "w": 3,
+      "h": 3
+    },
+    "stem": "groundfactory",
+    "assetPath": "units/ground-factory.png"
+  },
+  {
+    "type": "mech-assembler",
+    "label": "机甲组装厂",
+    "category": "units",
+    "processor": false,
+    "size": {
+      "w": 5,
+      "h": 5
+    },
+    "stem": "mechassembler",
+    "assetPath": "units/mech-assembler.png"
+  },
+  {
+    "type": "mech-fabricator",
+    "label": "机甲制造厂",
+    "category": "units",
+    "processor": false,
+    "size": {
+      "w": 3,
+      "h": 3
+    },
+    "stem": "mechfabricator",
+    "assetPath": "units/mech-fabricator.png"
+  },
+  {
+    "type": "mech-refabricator",
+    "label": "机甲重构厂",
+    "category": "units",
+    "processor": false,
+    "size": {
+      "w": 3,
+      "h": 3
+    },
+    "stem": "mechrefabricator",
+    "assetPath": "units/mech-refabricator.png"
+  },
+  {
+    "type": "multiplicative-reconstructor",
+    "label": "倍乘级单位重构工厂",
+    "category": "units",
+    "processor": false,
+    "size": {
+      "w": 5,
+      "h": 5
+    },
+    "stem": "multiplicativereconstructor",
+    "assetPath": "units/multiplicative-reconstructor.png"
+  },
+  {
+    "type": "naval-factory",
+    "label": "海军工厂",
+    "category": "units",
+    "processor": false,
+    "size": {
+      "w": 3,
+      "h": 3
+    },
+    "stem": "navalfactory",
+    "assetPath": "units/naval-factory.png"
+  },
+  {
+    "type": "prime-refabricator",
+    "label": "高级再重构工厂",
+    "category": "units",
+    "processor": false,
+    "size": {
+      "w": 5,
+      "h": 5
+    },
+    "stem": "primerefabricator",
+    "assetPath": "units/prime-refabricator.png"
+  },
+  {
+    "type": "repair-point",
+    "label": "维修点",
+    "category": "units",
+    "processor": false,
+    "size": {
+      "w": 1,
+      "h": 1
+    },
+    "stem": "repairpoint",
+    "assetPath": "units/repair-point.png"
+  },
+  {
+    "type": "repair-turret",
+    "label": "维修塔",
+    "category": "units",
+    "processor": false,
+    "size": {
+      "w": 2,
+      "h": 2
+    },
+    "stem": "repairturret",
+    "assetPath": "units/repair-turret.png"
+  },
+  {
+    "type": "ship-assembler",
+    "label": "飞船组装厂",
+    "category": "units",
+    "processor": false,
+    "size": {
+      "w": 5,
+      "h": 5
+    },
+    "stem": "shipassembler",
+    "assetPath": "units/ship-assembler.png"
+  },
+  {
+    "type": "ship-fabricator",
+    "label": "飞船制造厂",
+    "category": "units",
+    "processor": false,
+    "size": {
+      "w": 3,
+      "h": 3
+    },
+    "stem": "shipfabricator",
+    "assetPath": "units/ship-fabricator.png"
+  },
+  {
+    "type": "ship-refabricator",
+    "label": "飞船重构厂",
+    "category": "units",
+    "processor": false,
+    "size": {
+      "w": 3,
+      "h": 3
+    },
+    "stem": "shiprefabricator",
+    "assetPath": "units/ship-refabricator.png"
+  },
+  {
+    "type": "tank-assembler",
+    "label": "坦克组装厂",
+    "category": "units",
+    "processor": false,
+    "size": {
+      "w": 5,
+      "h": 5
+    },
+    "stem": "tankassembler",
+    "assetPath": "units/tank-assembler.png"
+  },
+  {
+    "type": "tank-fabricator",
+    "label": "坦克制造厂",
+    "category": "units",
+    "processor": false,
+    "size": {
+      "w": 3,
+      "h": 3
+    },
+    "stem": "tankfabricator",
+    "assetPath": "units/tank-fabricator.png"
+  },
+  {
+    "type": "tank-refabricator",
+    "label": "坦克重构厂",
+    "category": "units",
+    "processor": false,
+    "size": {
+      "w": 3,
+      "h": 3
+    },
+    "stem": "tankrefabricator",
+    "assetPath": "units/tank-refabricator.png"
+  },
+  {
+    "type": "tetrative-reconstructor",
+    "label": "无量级单位重构工厂",
+    "category": "units",
+    "processor": false,
+    "size": {
+      "w": 9,
+      "h": 9
+    },
+    "stem": "tetrativereconstructor",
+    "assetPath": "units/tetrative-reconstructor.png"
+  },
+  {
+    "type": "unit-cargo-loader",
+    "label": "单位物流装载器",
+    "category": "units",
+    "processor": false,
+    "size": {
+      "w": 3,
+      "h": 3
+    },
+    "stem": "unitcargoloader",
+    "assetPath": "units/unit-cargo-loader.png"
+  },
+  {
+    "type": "unit-cargo-unload-point",
+    "label": "单位物流卸载点",
+    "category": "units",
+    "processor": false,
+    "size": {
+      "w": 2,
+      "h": 2
+    },
+    "stem": "unitcargounloadpoint",
+    "assetPath": "units/unit-cargo-unload-point.png"
+  },
+  {
+    "type": "unit-repair-tower",
+    "label": "单位维修塔",
+    "category": "units",
+    "processor": false,
+    "size": {
+      "w": 2,
+      "h": 2
+    },
+    "stem": "unitrepairtower",
+    "assetPath": "units/unit-repair-tower.png"
+  },
+  {
+    "type": "advanced-launch-pad",
+    "label": "发射台",
+    "category": "campaign",
+    "processor": false,
+    "size": {
+      "w": 4,
+      "h": 4
+    },
+    "stem": "advancedlaunchpad",
+    "assetPath": "campaign/advanced-launch-pad.png"
+  },
+  {
+    "type": "interplanetary-accelerator",
+    "label": "行星际加速器",
+    "category": "campaign",
+    "processor": false,
+    "size": {
+      "w": 7,
+      "h": 7
+    },
+    "stem": "interplanetaryaccelerator",
+    "assetPath": "campaign/interplanetary-accelerator.png"
+  },
+  {
+    "type": "landing-pad",
+    "label": "接收台",
+    "category": "campaign",
+    "processor": false,
+    "size": {
+      "w": 4,
+      "h": 4
+    },
+    "stem": "landingpad",
+    "assetPath": "campaign/landing-pad.png"
+  },
+  {
+    "type": "launch-pad",
+    "label": "发射台[lightgray]（旧版）",
+    "category": "campaign",
+    "processor": false,
+    "size": {
+      "w": 3,
+      "h": 3
+    },
+    "stem": "launchpad",
+    "assetPath": "campaign/launch-pad.png"
+  },
+  {
+    "type": "heat-source",
+    "label": "热量源",
+    "category": "sandbox",
+    "processor": false,
+    "size": {
+      "w": 1,
+      "h": 1
+    },
+    "stem": "heatsource",
+    "assetPath": "sandbox/heat-source.png"
+  },
+  {
+    "type": "item-source",
+    "label": "物品源",
+    "category": "sandbox",
+    "processor": false,
+    "size": {
+      "w": 1,
+      "h": 1
+    },
+    "stem": "itemsource",
+    "assetPath": "sandbox/item-source.png"
+  },
+  {
+    "type": "item-void",
+    "label": "物品黑洞",
+    "category": "sandbox",
+    "processor": false,
+    "size": {
+      "w": 1,
+      "h": 1
+    },
+    "stem": "itemvoid",
+    "assetPath": "sandbox/item-void.png"
+  },
+  {
+    "type": "liquid-source",
+    "label": "液体源",
+    "category": "sandbox",
+    "processor": false,
+    "size": {
+      "w": 1,
+      "h": 1
+    },
+    "stem": "liquidsource",
+    "assetPath": "sandbox/liquid-source.png"
+  },
+  {
+    "type": "liquid-void",
+    "label": "液体黑洞",
+    "category": "sandbox",
+    "processor": false,
+    "size": {
+      "w": 1,
+      "h": 1
+    },
+    "stem": "liquidvoid",
+    "assetPath": "sandbox/liquid-void.png"
+  }
+]

@@ -8,6 +8,7 @@ import bowser from 'bowser';
 import React from 'react';
 
 import VM from 'scratch-vm';
+import JSZip from '@turbowarp/jszip';
 
 import Box from '../box/box.jsx';
 import Button from '../button/button.jsx';
@@ -82,6 +83,11 @@ import {
 import {setFileHandle} from '../../reducers/tw.js';
 
 import collectMetadata from '../../lib/collect-metadata';
+import downloadBlob from '../../lib/download-blob';
+import {compileProject as compileMlogProject} from '../../lib/mlog-backend';
+import {getGraphState} from '../../lib/mlog-stage-store';
+import AddonHooks from '../../addons/hooks';
+import {workspaceXmlToProgram} from '../../lib/mlog-blockly-bridge';
 
 import styles from './menu-bar.css';
 
@@ -121,8 +127,44 @@ const twMessages = defineMessages({
         id: 'tw.menuBar.compileError',
         defaultMessage: '{sprite}: {error}',
         description: 'Error message in error menu'
+    },
+    exportMlog: {
+        id: 'tw.menuBar.exportMlog',
+        defaultMessage: '导出 Mlog',
+        description: 'Menu bar item for exporting the current Mindustry logic project as mlog'
+    },
+    exportMlogFailed: {
+        id: 'tw.menuBar.exportMlogFailed',
+        defaultMessage: '导出 Mlog 失败：{details}',
+        description: 'Alert shown when exporting Mlog fails'
     }
 });
+
+const sanitizeFileName = fileName => {
+    const normalized = String(fileName || 'project')
+        .replace(/[\\/:*?"<>|]/g, '_')
+        .trim();
+    return normalized || 'project';
+};
+
+const formatMlogDiagnostic = diagnostic => {
+    if (!diagnostic) return '';
+    const prefix = diagnostic.fileName ? `${diagnostic.fileName}: ` : '';
+    const message = diagnostic.message || String(diagnostic);
+    return `${prefix}${message}`;
+};
+
+const getProcessorExportFileNames = processors => {
+    const counts = new Map();
+    return processors.map((processor, index) => {
+        const baseName = sanitizeFileName(
+            processor && processor.name ? processor.name : `processor-${index + 1}`
+        );
+        const seen = counts.get(baseName) || 0;
+        counts.set(baseName, seen + 1);
+        return seen === 0 ? `${baseName}.mlog` : `${baseName}-${seen + 1}.mlog`;
+    });
+};
 
 const MenuBarItemTooltip = ({
     children,
@@ -218,6 +260,7 @@ class MenuBar extends React.Component {
             'handleClickRemix',
             'handleClickSave',
             'handleClickSaveAsCopy',
+            'handleClickExportMlog',
             'handleClickPackager',
             'handleClickDesktopSettings',
             'handleClickRestorePoints',
@@ -266,6 +309,82 @@ class MenuBar extends React.Component {
     handleClickSaveAsCopy () {
         this.props.onClickSaveAsCopy();
         this.props.onRequestCloseFile();
+    }
+    async handleClickExportMlog () {
+        this.props.onRequestCloseFile();
+        try {
+            const graphState = getGraphState();
+            const projectSnapshot = graphState && graphState.project ? graphState.project : null;
+            if (!projectSnapshot) {
+                window.alert(this.props.intl.formatMessage(twMessages.exportMlogFailed, {
+                    details: '当前项目未初始化。'
+                })); // eslint-disable-line no-alert
+                return;
+            }
+
+            const liveProjectSnapshot = (() => {
+                const workspace = AddonHooks.blocklyWorkspace;
+                const ScratchBlocks = window.ScratchBlocks || window.Blockly;
+                if (!workspace || !ScratchBlocks || !ScratchBlocks.Xml || !projectSnapshot.activeProcessorId) {
+                    return projectSnapshot;
+                }
+                try {
+                    const xmlDom = ScratchBlocks.Xml.workspaceToDom(workspace);
+                    const workspaceXml = ScratchBlocks.Xml.domToText(xmlDom);
+                    const program = workspaceXmlToProgram(workspaceXml);
+                    return {
+                        ...projectSnapshot,
+                        processors: projectSnapshot.processors.map(processor => (
+                            processor.id === projectSnapshot.activeProcessorId ?
+                                {
+                                    ...processor,
+                                    program: {
+                                        ...program,
+                                        workspaceXml
+                                    }
+                                } :
+                                processor
+                        ))
+                    };
+                } catch (error) {
+                    return projectSnapshot;
+                }
+            })();
+
+            const result = await compileMlogProject(liveProjectSnapshot);
+            const processors = Array.isArray(result.processors) ?
+                result.processors.filter(item => item && typeof item.code === 'string' && item.code.trim()) :
+                [];
+            if (processors.length === 0) {
+                const diagnostics = Array.isArray(result.diagnostics) ?
+                    result.diagnostics.filter(item => item && item.level === 'error') :
+                    [];
+                const details = diagnostics.length > 0 ?
+                    diagnostics.slice(0, 6).map(formatMlogDiagnostic).join('\n') :
+                    '编译结果为空。';
+                window.alert(this.props.intl.formatMessage(twMessages.exportMlogFailed, {
+                    details
+                })); // eslint-disable-line no-alert
+                return;
+            }
+
+            const fileNames = getProcessorExportFileNames(processors);
+            const zip = new JSZip();
+            processors.forEach((processor, index) => {
+                zip.file(fileNames[index], processor.code);
+            });
+            const zipName = `${sanitizeFileName(this.props.projectTitle || 'mlog-export')}.zip`;
+            const zipBlob = await zip.generateAsync({
+                type: 'blob',
+                compression: 'DEFLATE',
+                compressionOptions: {level: 6}
+            });
+            downloadBlob(zipName, zipBlob);
+        } catch (error) {
+            window.alert(this.props.intl.formatMessage(twMessages.exportMlogFailed, {
+                details: error instanceof Error ? error.message : String(error)
+            })); // eslint-disable-line no-alert
+        }
     }
     handleClickPackager () {
         this.props.onClickPackager();
@@ -690,6 +809,13 @@ class MenuBar extends React.Component {
                                                 </React.Fragment>
                                             )}
                                         </SB3Downloader>
+                                        <MenuItem onClick={this.handleClickExportMlog}>
+                                            <FormattedMessage
+                                                defaultMessage="导出 Mlog"
+                                                description="Menu bar item for exporting the current Mindustry logic project as mlog"
+                                                id="tw.menuBar.exportMlog"
+                                            />
+                                        </MenuItem>
                                     </MenuSection>
                                     {this.props.onClickPackager && (
                                         <MenuSection>

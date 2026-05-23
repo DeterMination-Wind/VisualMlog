@@ -44,6 +44,18 @@ import AddonHooks from '../addons/hooks.js';
 import LoadScratchBlocksHOC from '../lib/tw-load-scratch-blocks-hoc.jsx';
 import {findTopBlock} from '../lib/backpack/code-payload.js';
 import {gentlyRequestPersistentStorage} from '../lib/tw-persistent-storage.js';
+import {
+    getActiveProcessor,
+    getGraphState,
+    subscribeGraphState,
+    updateProcessorProgram
+} from '../lib/mlog-stage-store';
+import {
+    EMPTY_WORKSPACE_XML,
+    isEmptyWorkspaceXml,
+    programToWorkspaceXml,
+    workspaceXmlToProgram
+} from '../lib/mlog-blockly-bridge';
 
 // TW: Strings we add to scratch-blocks are localized here
 const messages = defineMessages({
@@ -120,6 +132,9 @@ class Blocks extends React.Component {
             'onVisualReport',
             'onWorkspaceUpdate',
             'onWorkspaceMetricsChange',
+            'handleGraphStateChange',
+            'loadProcessorWorkspace',
+            'saveActiveProcessorWorkspace',
             'setBlocks',
             'setLocale',
             'handleEnableProcedureReturns'
@@ -133,6 +148,10 @@ class Blocks extends React.Component {
         };
         this.onTargetsUpdate = debounce(this.onTargetsUpdate, 100);
         this.toolboxUpdateQueue = [];
+        this.graphState = getGraphState();
+        this.activeProcessorId = null;
+        this.isApplyingProcessorWorkspace = false;
+        this.debouncedSaveActiveProcessorWorkspace = debounce(this.saveActiveProcessorWorkspace.bind(this), 120);
     }
     componentDidMount () {
         this.ScratchBlocks = VMScratchBlocks(this.props.vm, this.props.useCatBlocks);
@@ -166,6 +185,7 @@ class Blocks extends React.Component {
         );
         this.workspace = this.ScratchBlocks.inject(this.blocks, workspaceConfig);
         AddonHooks.blocklyWorkspace = this.workspace;
+        this.workspace.addChangeListener(this.debouncedSaveActiveProcessorWorkspace);
 
         // Register buttons under new callback keys for creating variables,
         // lists, and procedures from extensions.
@@ -229,6 +249,8 @@ class Blocks extends React.Component {
         }
 
         gentlyRequestPersistentStorage();
+        this.unsubscribeGraphState = subscribeGraphState(this.handleGraphStateChange);
+        this.handleGraphStateChange(this.graphState);
     }
     shouldComponentUpdate (nextProps, nextState) {
         return (
@@ -287,8 +309,17 @@ class Blocks extends React.Component {
     componentWillUnmount () {
         this.detachVM();
         this.unmounted = true;
+        if (this.workspace) {
+            this.workspace.removeChangeListener(this.debouncedSaveActiveProcessorWorkspace);
+        }
+        if (this.debouncedSaveActiveProcessorWorkspace && this.debouncedSaveActiveProcessorWorkspace.cancel) {
+            this.debouncedSaveActiveProcessorWorkspace.cancel();
+        }
         this.workspace.dispose();
         clearTimeout(this.toolboxUpdateTimeout);
+        if (this.unsubscribeGraphState) {
+            this.unsubscribeGraphState();
+        }
 
         // Clear the flyout blocks so that they can be recreated on mount.
         this.props.vm.clearFlyoutBlocks();
@@ -313,6 +344,66 @@ class Blocks extends React.Component {
                     this.workspace.getFlyout().setRecyclingEnabled(true);
                 });
             });
+    }
+    handleGraphStateChange (graphState) {
+        const previousGraphState = this.graphState;
+        const previousProcessorId = this.activeProcessorId;
+        this.graphState = graphState;
+        const activeProcessor = getActiveProcessor(graphState.project);
+        const nextProcessorId = activeProcessor ? activeProcessor.id : null;
+        if (!nextProcessorId || nextProcessorId === previousProcessorId || !this.workspace) {
+            return;
+        }
+        this.activeProcessorId = nextProcessorId;
+        if (previousProcessorId && previousGraphState && previousGraphState.project) {
+            const previousProcessor = previousGraphState.project.processors.find(
+                processor => processor.id === previousProcessorId
+            );
+            if (previousProcessor) {
+                if (this.debouncedSaveActiveProcessorWorkspace && this.debouncedSaveActiveProcessorWorkspace.cancel) {
+                    this.debouncedSaveActiveProcessorWorkspace.cancel();
+                }
+                this.saveActiveProcessorWorkspace(previousProcessor.id);
+            }
+        }
+        this.loadProcessorWorkspace(activeProcessor);
+    }
+
+    loadProcessorWorkspace (processor) {
+        if (!processor || !this.workspace || !this.ScratchBlocks) return;
+        const workspaceXml = processor.program && !isEmptyWorkspaceXml(processor.program.workspaceXml) ?
+            processor.program.workspaceXml :
+            (processor.program && Array.isArray(processor.program.blocks) && processor.program.blocks.length > 0 ?
+                programToWorkspaceXml(processor.program) :
+                EMPTY_WORKSPACE_XML);
+        this.isApplyingProcessorWorkspace = true;
+        this.workspace.removeChangeListener(this.props.vm.blockListener);
+        try {
+            const dom = this.ScratchBlocks.Xml.textToDom(workspaceXml);
+            this.ScratchBlocks.Xml.clearWorkspaceAndLoadFromXml(dom, this.workspace);
+        } catch (error) {
+            log.error(error);
+        } finally {
+            this.workspace.addChangeListener(this.props.vm.blockListener);
+            this.workspace.clearUndo();
+            this.isApplyingProcessorWorkspace = false;
+        }
+    }
+
+    saveActiveProcessorWorkspace (processorId = null) {
+        if (this.isApplyingProcessorWorkspace || !this.workspace) return;
+        const graphState = this.graphState || getGraphState();
+        const processor = processorId ?
+            graphState.project.processors.find(item => item.id === processorId) :
+            getActiveProcessor(graphState.project);
+        if (!processor) return;
+        const xmlDom = this.ScratchBlocks.Xml.workspaceToDom(this.workspace);
+        const workspaceXml = this.ScratchBlocks.Xml.domToText(xmlDom);
+        const program = workspaceXmlToProgram(workspaceXml);
+        updateProcessorProgram(processor.id, {
+            ...program,
+            workspaceXml
+        });
     }
 
     updateToolbox () {
@@ -463,6 +554,9 @@ class Blocks extends React.Component {
         }
     }
     onWorkspaceUpdate (data) {
+        if (this.graphState && getActiveProcessor(this.graphState.project)) {
+            return;
+        }
         // When we change sprites, update the toolbox to have the new sprite's blocks
         const toolboxXML = this.getToolboxXML();
         if (toolboxXML) {

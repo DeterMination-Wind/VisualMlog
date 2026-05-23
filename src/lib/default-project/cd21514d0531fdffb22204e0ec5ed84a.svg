@@ -1,3 +1,42 @@
-<svg version="1.1" width="2" height="2" viewBox="-1 -1 2 2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-  <!-- Exported by Scratch - http://scratch.mit.edu/ -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 360">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0c1320"/>
+      <stop offset="1" stop-color="#111b2d"/>
+    </linearGradient>
+    <pattern id="grid" width="24" height="24" patternUnits="userSpaceOnUse">
+      <path d="M 24 0 L 0 0 0 24" fill="none" stroke="#ffffff" stroke-opacity="0.05" stroke-width="1"/>
+    </pattern>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="2" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <rect width="480" height="360" fill="url(#bg)"/>
+  <rect width="480" height="360" fill="url(#grid)"/>
+  <g opacity="0.9">
+    <path d="M78 88h112" stroke="#6ed3ff" stroke-width="3" stroke-linecap="round"/>
+    <path d="M190 88h64" stroke="#ff9b42" stroke-width="3" stroke-linecap="round"/>
+    <path d="M254 88h88" stroke="#89c97f" stroke-width="3" stroke-linecap="round"/>
+    <path d="M146 170h126" stroke="#6ed3ff" stroke-width="3" stroke-linecap="round"/>
+    <path d="M272 170h70" stroke="#ff9b42" stroke-width="3" stroke-linecap="round"/>
+    <circle cx="78" cy="88" r="6" fill="#6ed3ff" filter="url(#glow)"/>
+    <circle cx="190" cy="88" r="7" fill="#ff9b42" filter="url(#glow)"/>
+    <circle cx="254" cy="88" r="7" fill="#89c97f" filter="url(#glow)"/>
+    <circle cx="146" cy="170" r="6" fill="#6ed3ff" filter="url(#glow)"/>
+    <circle cx="272" cy="170" r="7" fill="#ff9b42" filter="url(#glow)"/>
+  </g>
+  <g transform="translate(240 212)">
+    <rect x="-84" y="-58" width="168" height="116" rx="12" fill="#1a2538" stroke="#667a9a" stroke-width="3"/>
+    <rect x="-70" y="-44" width="140" height="88" rx="8" fill="#0f1726" stroke="#2f3c54" stroke-width="2"/>
+    <rect x="-50" y="-24" width="100" height="48" rx="6" fill="#111c2e" stroke="#4b5d7d" stroke-width="2"/>
+    <circle cx="-58" cy="-8" r="8" fill="#ff9b42"/>
+    <circle cx="58" cy="-8" r="8" fill="#89c97f"/>
+    <circle cx="0" cy="26" r="7" fill="#6ed3ff"/>
+    <path d="M-92 -8h-12M92 -8h12M0 -66v-14M0 58v14" stroke="#879ab8" stroke-width="4" stroke-linecap="round"/>
+    <path d="M-58 -8h-24M58 -8h24M0 26v22" stroke="#b7c3d9" stroke-width="2" stroke-linecap="round"/>
+  </g>
 </svg>

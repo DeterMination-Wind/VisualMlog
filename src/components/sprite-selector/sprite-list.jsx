@@ -89,6 +89,8 @@ const SpriteList = function (props) {
                                 index={index}
                                 key={sprite.id}
                                 name={sprite.name}
+                                details={sprite.details}
+                                costumeURL={sprite.costumeURL}
                                 selected={sprite.id === selectedId}
                                 onClick={onSelectSprite}
                                 onDeleteButtonClick={onDeleteSprite}
