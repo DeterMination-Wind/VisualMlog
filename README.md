@@ -1,4 +1,10 @@
 # VisualMlog
+<h1 align="center">
+  <a href="https://github.com/DeterMination-Wind/VisualMlog/releases/latest"><img src="https://img.shields.io/github/v/release/DeterMination-Wind/VisualMlog?display_name=release&label=Latest%20Release&color=green"></a>
+  <a href="https://github.com/DeterMination-Wind/VisualMlog/releases"><img src="https://img.shields.io/github/downloads/DeterMination-Wind/VisualMlog/total?label=Downloads&color=blue"></a>
+  <a href="LICENSE"><img src="https://img.shields.io/github/license/DeterMination-Wind/VisualMlog?label=License"></a>
+  <a href="https://github.com/DeterMination-Wind/VisualMlog"><img src="https://img.shields.io/github/stars/DeterMination-Wind/VisualMlog?style=flat&label=Star%20this%20mod!&color=yellow"></a>
+</h1>
 
 A **visual, block-based editor** for [Mindustry](https://mindustrygame.github.io/) logic programs, built on [TurboWarp](https://turbowarp.org/)'s editor (scratch-gui).
 
